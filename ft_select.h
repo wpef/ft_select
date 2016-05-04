@@ -10,6 +10,7 @@ typedef struct termios	t_termios;
 
 typedef struct		s_term
 {
+	t_termios	*origin_termios;
 	t_termios	*termios;
 }			t_term;	
 
