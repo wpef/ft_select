@@ -43,12 +43,14 @@ int	init_newterm(t_term *term)
 	return (1);
 }
 
-int main(void)
+int main(int ac, char **av)
 {
 	t_term	term;
+	t_infos	files;
 
 	if (init_newterm(&term) == -1)
 		return (-1);
+	get_infos(ac, av, &files);
 	tcsetattr(0, TCSADRAIN, &term.origin_termios);
 	return (1);
 }
