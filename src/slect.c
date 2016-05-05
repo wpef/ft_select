@@ -2,10 +2,10 @@
 
 int	get_termdata(t_term *term)
 {
-	char		*termtype;
+	char	*termtype;
 	int		success;
 
-	termtype = getenv ("TERM");
+	termtype = getenv("TERM");
 	if (termtype == NULL)
 		ft_putendl("Specify a terminal type with `export TERM <yourtype>'.\n");
 	success = tgetent(NULL, termtype);
@@ -19,12 +19,13 @@ int	get_termdata(t_term *term)
 	return (success);
 }
 
+/*
+** THIS FUNCTION SETS THE TERMINAL TO CANONIQUE MODE WHICH MEANS THE 
+** FUCTION READ WILL RETURN EACH CHARACTERS STROKE INDEPENDANTLY
+*/
+
 int	set_newterm(t_termios *term)
 {
-	/* 
-	** THIS FUNCTION SETS THE TERMINAL TO CANONIQUE MODE WHICH MEANS THE 
-	** FUCTION READ WILL RETURN EACH CHARACTERS STROKE INDEPENDANTLY
-	*/
 	term->c_lflag &= ~(ICANON);
 	term->c_lflag &= ~(ECHO);
 	term->c_cc[VMIN] = 1;

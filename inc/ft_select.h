@@ -39,7 +39,7 @@ int	set_newterm(t_termios *term);
 ** GET FILES
 */
 
-int	affichage(int ac, char **av, t_infos *files);
+int	get_infos(int ac, char **av, t_infos *files);
 t_files	*make_filelist(char **av);
 t_files	*init_list(char *av);
 

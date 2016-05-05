@@ -1,10 +1,13 @@
 #include "ft_select.h"
 
-int get_infos(int ac, char **av, t_infos *files)
+int		get_infos(int ac, char **av, t_infos *files)
 {
 	files->nbfiles = ac - 1;
 	files->args = make_filelist(av);
 	//get window_size;
+	//check size;
+	//clear;
+	//put;
 	return (1);
 }
 
@@ -13,7 +16,7 @@ t_files	*make_filelist(char **av)
 	t_files *filelist;
 	t_files	*ptr;
 	t_files *ptr2;
-	int i;
+	int		i;
 
 	i = 1;
 	filelist = init_list(av[i]);
@@ -35,10 +38,10 @@ t_files	*make_filelist(char **av)
 t_files	*init_list(char *av)
 {
 	t_files	*filelist;
-	
-	filelist = malloc(sizeof(t_files));
+
+	filelist = malloc(sizeof(t_files)); //leaks ici apparemment
 	filelist->prev = NULL;
 	filelist->file = av;
 	filelist->next = NULL;
-	return(filelist);
+	return (filelist);
 }
