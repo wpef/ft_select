@@ -10,8 +10,18 @@ typedef struct termios	t_termios;
 
 typedef struct		s_term
 {
-	t_termios	*origin_termios;
-	t_termios	*termios;
+	t_termios	origin_termios;
+	t_termios	termios;
 }			t_term;	
+
+
+/*
+** INITIALISING NEWTERM MODE
+*/
+
+int	main(void);
+int	init_newterm(t_term *term);
+int	get_termdata(t_term *term);
+int	set_newterm(t_termios *term);
 
 #endif
