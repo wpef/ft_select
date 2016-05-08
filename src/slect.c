@@ -47,11 +47,12 @@ int	init_newterm(t_term *term)
 int main(int ac, char **av)
 {
 	t_term	term;
-	t_infos	files;
+	t_infos	infos;
 
 	if (init_newterm(&term) == -1)
 		return (-1);
-	get_infos(ac, av, &files);
+	get_infos(ac, av, &infos);
+	run_select(&term, &infos);
 	tcsetattr(0, TCSADRAIN, &term.origin_termios);
 	return (1);
 }

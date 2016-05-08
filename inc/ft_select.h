@@ -2,6 +2,8 @@
 # define FT_SELECT_H
 # include "libft.h"
 # include <curses.h>
+# include <sys/ioctl.h>
+# include <stdio.h> //to tej
 # include <term.h>
 # include <termcap.h>
 # include <termios.h>
@@ -18,13 +20,20 @@ typedef struct		s_files
 {
 	struct s_files	*prev;
 	char			*file;
+	int			len;
 	struct s_files	*next;
 }					t_files;
 
 typedef	struct		s_infos
 {
 	int	nbfiles;
-	t_files	*args;
+	t_files	*files;
+	int	ws_row;
+	int	ws_col;
+	int	max_col;
+	int	max_row;
+	int	maxlen;
+	int	fd;
 }					t_infos;
 
 /*
@@ -34,13 +43,41 @@ typedef	struct		s_infos
 int	init_newterm(t_term *term);
 int	get_termdata(t_term *term);
 int	set_newterm(t_termios *term);
+int	my_putchar(int c);
+
+/*
+** GET INFOS
+*/
+
+int	get_infos(int ac, char **av, t_infos *files);
+int	get_files(int ac, char **av, t_infos *files);
+int	get_winsize(t_infos *infos);
+int	check_winsize(t_infos *infos);
 
 /*
 ** GET FILES
 */
 
-int	get_infos(int ac, char **av, t_infos *files);
 t_files	*make_filelist(char **av);
 t_files	*init_list(char *av);
+int	get_maxlen(t_infos *infos);
+
+/*
+** RUNNING
+*/
+
+int run_select(t_term *term, t_infos *infos);
+int	open_newterm(t_infos *infos);
+int	clean(int fd);
+int	print_file(t_files *ptr, t_infos *infos);
+int	print_list(t_infos *infos);
+int	putchar_std(int c);
+int	putchar_fd(int c);
+
+/*
+** COMMANDS
+*/
+
+int	read_commands(t_term *term, t_infos *infos);
 
 #endif
