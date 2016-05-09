@@ -8,11 +8,13 @@ int run_select(t_term *term, t_infos *infos)
 	while (42)
 	{
 		if (check_winsize(infos) == 1)
+		{
 			print_list(infos);
-		else
-			ft_putendl("ERROR");
 			read_commands(term, infos);
-		return (1);
+			return (1);
+		}
+		ft_putendl("ERROR");
+		return (sl_error("winsize", term, infos));
 	}
 }
 

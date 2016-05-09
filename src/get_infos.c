@@ -23,10 +23,10 @@ int		check_winsize(t_infos *infos)
 	int	max_row;
 	
 	max_col = infos->ws_col / (infos->maxlen + 1);
-	max_row = max_col / infos->nbfiles;
+	max_row = infos->nbfiles / max_col;
 	infos->max_col = max_col;
 	infos->max_row = max_row;
-	if (max_row < infos->ws_row)
+	if (max_row <= infos->ws_row)
 		return (1);
 	else
 		return (-1);
