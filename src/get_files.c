@@ -61,8 +61,8 @@ int	get_maxlen(t_infos *infos)
 	ptr = infos->files;
 	while (ptr)
 	{
-		if (ptr->len > maxlen)
-			maxlen = ptr->len;
+		if (ptr->len + 1 > maxlen)
+			maxlen = ptr->len + 1;
 		ptr = ptr->next;
 	}
 	return (maxlen);

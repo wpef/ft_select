@@ -8,7 +8,7 @@ int run_select(t_infos *infos)
 	if (check_winsize(infos) == 1)
 	{
 		print_list(infos);
-	//	cursor_start(infos);
+		cursor_origin(infos);
 		read_commands(infos);
 		return (1);
 	}

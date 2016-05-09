@@ -31,6 +31,8 @@ typedef	struct		s_infos
 	t_files	*files;
 	int		ws_row;
 	int		ws_col;
+	int		cr_col;
+	int		cr_row;
 	int		max_col;
 	int		max_row;
 	int		maxlen;
@@ -80,7 +82,12 @@ int	putchar_fd(int c);
 */
 
 int	read_commands(t_infos *infos);
-
 int	sl_error(char *id, t_infos *infos);
+
+/*
+** MOTION
+*/
+
+int cursor_origin(t_infos *infos);
 
 #endif
