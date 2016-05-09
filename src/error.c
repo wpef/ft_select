@@ -1,11 +1,11 @@
 #include "ft_select.h"
 
-int	sl_error(char *id, t_term *term, t_infos *infos)
+int	sl_error(char *id, t_infos *infos)
 {
 	if (ft_strcmp("winsize", id) == 0)
 	{
 		get_winsize(infos);
-		return (run_select(term, infos));
+		return (run_select(infos));
 	}
 	else if (ft_strcmp("usage", id) == 0)
 	{

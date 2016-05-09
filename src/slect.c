@@ -46,15 +46,14 @@ int	init_newterm(t_term *term)
 
 int main(int ac, char **av)
 {
-	t_term	term;
 	t_infos	infos;
 
-	if (init_newterm(&term) == -1)
+	if (init_newterm(&infos.term) == -1)
 		return (-1);
 	if (get_infos(ac, av, &infos) == -1)
 		return (-1);
-	run_select(&term, &infos);
-	tcsetattr(0, TCSADRAIN, &term.origin_termios);
+	run_select(&infos);
+	tcsetattr(0, TCSADRAIN, &infos.term.origin_termios);
 	return (1);
 }
 

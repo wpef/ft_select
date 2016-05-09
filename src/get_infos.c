@@ -3,7 +3,7 @@
 int		get_infos(int ac, char **av, t_infos *infos)
 {
 	if (ac == 1)
-		return (sl_error("usage", NULL, infos));
+		return (sl_error("usage", infos));
 	get_files(ac, av, infos);
 	get_winsize(infos);
 	return (1);

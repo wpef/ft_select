@@ -1,21 +1,19 @@
 #include "ft_select.h"
 
-int run_select(t_term *term, t_infos *infos)
+int run_select(t_infos *infos)
 {
-	if (term == NULL || infos == NULL)
+	if (infos == NULL)
 		return (-1);
 	clean(1);
-	while (42)
+	if (check_winsize(infos) == 1)
 	{
-		if (check_winsize(infos) == 1)
-		{
-			print_list(infos);
-			read_commands(term, infos);
-			return (1);
-		}
-		ft_putendl("ERROR");
-		return (sl_error("winsize", term, infos));
+		print_list(infos);
+	//	cursor_start(infos);
+		read_commands(infos);
+		return (1);
 	}
+	ft_putendl("ERROR");
+	return (sl_error("winsize", infos));
 }
 
 int	clean(int fd)
