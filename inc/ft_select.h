@@ -80,4 +80,6 @@ int	putchar_fd(int c);
 
 int	read_commands(t_term *term, t_infos *infos);
 
+int	sl_error(char *id, t_term *term, t_infos *infos);
+
 #endif
