@@ -9,7 +9,7 @@ int	read_commands(t_infos *infos)
 	while (42)
 	{
 		read(0, buf, 3);
-	}
+	}	
 	//return (run_select(term, infos));
 	return (1);
 }

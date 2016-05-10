@@ -2,12 +2,24 @@
 
 int run_select(t_infos *infos)
 {
+//	if (init_print(infos) == -1)
+//		return (-1);
+	if (infos)
+		return (0);
+	return (1);
+}
+
+int	init_print(t_infos *infos)
+{
 	if (infos == NULL)
 		return (-1);
 	clean(1);
 	if (check_winsize(infos) == 1)
 	{
+		//open_newterm(infos);
 		print_list(infos);
+		cursor_origin(infos);
+		print_file(infos->files, "ul", infos);
 		cursor_origin(infos);
 		read_commands(infos);
 		return (1);
@@ -28,33 +40,17 @@ int	clean(int fd)
 int	print_list(t_infos *infos)
 {
 	t_files *ptr;
+	int		col;
 
+	col = 0; //col doit recuperre une valeure dans INFOS
 	ptr = infos->files;
 	while (ptr != NULL)
 	{
-		print_file(ptr, infos);
+		if (col	!= 0 && col % infos->max_col == 0)
+			ft_putchar('\n');
+		print_file(ptr, NULL, infos);
+		col++;
 		ptr = ptr->next;
-	}
-	return (1);
-}
-
-int	print_file(t_files *ptr, t_infos *infos)
-{
-	static int	col = 0;
-	int			len;
-
-	ft_putstr(ptr->file);
-	col++;
-	if (col % infos->max_col == 0)
-	{
-		ft_putchar('\n');
-		return (1);
-	}
-	len = ptr->len;
-	while (len <= infos->maxlen)
-	{
-		ft_putchar(' ');
-		len++;
 	}
 	return (1);
 }

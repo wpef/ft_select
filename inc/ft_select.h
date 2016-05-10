@@ -20,7 +20,9 @@ typedef struct		s_files
 {
 	struct s_files	*prev;
 	char			*file;
-	int			len;
+	int				len;
+	int				x_pos;
+	int				y_pos;
 	struct s_files	*next;
 }					t_files;
 
@@ -33,9 +35,9 @@ typedef	struct		s_infos
 	int		ws_col;
 	int		cr_col;
 	int		cr_row;
-	int		max_col;
-	int		max_row;
-	int		maxlen;
+	int		max_col; //nombre total de colone
+	int		max_row; //nombre max de ligne
+	int		maxlen; // largeur des colones
 	int		fd;
 }					t_infos;
 
@@ -64,6 +66,7 @@ int	check_winsize(t_infos *infos);
 t_files	*make_filelist(char **av);
 t_files	*init_list(char *av);
 int	get_maxlen(t_infos *infos);
+int		get_filepos(t_infos *infos);
 
 /*
 ** RUNNING
@@ -71,8 +74,8 @@ int	get_maxlen(t_infos *infos);
 
 int run_select(t_infos *infos);
 int	open_newterm(t_infos *infos);
+int	init_print(t_infos *infos);
 int	clean(int fd);
-int	print_file(t_files *ptr, t_infos *infos);
 int	print_list(t_infos *infos);
 int	putchar_std(int c);
 int	putchar_fd(int c);
@@ -89,5 +92,12 @@ int	sl_error(char *id, t_infos *infos);
 */
 
 int cursor_origin(t_infos *infos);
+
+/*
+** PRINTS
+*/
+
+int	print_file(t_files *ptr, char *opt, t_infos *infos);
+int	print_ulfile(t_files *ptr);
 
 #endif

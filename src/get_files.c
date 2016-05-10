@@ -6,6 +6,7 @@ int		get_files(int ac, char **av, t_infos *infos)
 	if ((infos->files = make_filelist(av)) != NULL)
 	{
 		infos->maxlen = get_maxlen(infos);
+		
 		return (1);
 	}
 	return (-1);
@@ -66,4 +67,32 @@ int	get_maxlen(t_infos *infos)
 		ptr = ptr->next;
 	}
 	return (maxlen);
+}
+
+int		get_filepos(t_infos *infos)
+{
+	t_files *ptr;
+	int		col;
+	int		row;
+
+	col = 0;
+	row = 0;
+	ptr = infos->files;
+		printf("NB OF COL = %d  || COL WITH = %d || total WIDT = %d\n", infos->max_col, infos->maxlen, infos->ws_col);
+	while (ptr != NULL)
+	{
+		ptr->x_pos = col;
+		ptr->y_pos = row;
+		col = col + infos->maxlen + 1;
+		if (col >= infos->ws_col)
+		{
+			row++;
+			col = 0;
+		}
+		//debug
+ 		printf("%s :: col = %d | row = %d\n", ptr->file, ptr->x_pos, ptr->y_pos);
+		//EOF
+		ptr = ptr->next;
+	}
+	return (1);
 }
