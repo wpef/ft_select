@@ -2,10 +2,9 @@
 
 int run_select(t_infos *infos)
 {
-//	if (init_print(infos) == -1)
-//		return (-1);
-	if (infos)
-		return (0);
+	if (init_print(infos) == -1)
+		return (-1);
+	read_commands(infos);
 	return (1);
 }
 
@@ -21,7 +20,6 @@ int	init_print(t_infos *infos)
 		cursor_origin(infos);
 		print_file(infos->files, "ul", infos);
 		cursor_origin(infos);
-		read_commands(infos);
 		return (1);
 	}
 	ft_putendl("ERROR");
