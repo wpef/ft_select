@@ -33,6 +33,7 @@ typedef	struct		s_infos
 	t_files	*files;
 	int		ws_row;
 	int		ws_col;
+	t_files		*cr_pos;
 	int		cr_col;
 	int		cr_row;
 	int		max_col; //nombre total de colone
@@ -92,6 +93,11 @@ int	sl_error(char *id, t_infos *infos);
 */
 
 int cursor_origin(t_infos *infos);
+int cursor_commands(char c, t_infos *infos);
+int curs_right(t_infos *infos);
+int curs_left(t_infos *infos);
+int curs_down(t_infos *infos);
+int curs_up(t_infos *infos);
 
 /*
 ** PRINTS

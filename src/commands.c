@@ -6,9 +6,13 @@ int	read_commands(t_infos *infos)
 
 	if (infos == NULL)
 		return (-1);
-	while (42)
+	while (read(0, buf, 3) > 0)
 	{
-		read(0, buf, 3);
+		if (buf[0] == 27)
+		{
+			if (buf[1] == 91)
+				cursor_commands(buf[2], infos);
+		}
 	}	
 	//return (run_select(term, infos));
 	return (1);
