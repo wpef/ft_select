@@ -67,13 +67,14 @@ int	check_winsize(t_infos *infos);
 t_files	*make_filelist(char **av);
 t_files	*init_list(char *av);
 int	get_maxlen(t_infos *infos);
-int		get_filepos(t_infos *infos);
+int	get_filepos(t_infos *infos);
+int	make_loop(t_files *file);
 
 /*
 ** RUNNING
 */
 
-int run_select(t_infos *infos);
+int	run_select(t_infos *infos);
 int	open_newterm(t_infos *infos);
 int	init_print(t_infos *infos);
 int	clean(int fd);
@@ -92,12 +93,12 @@ int	sl_error(char *id, t_infos *infos);
 ** MOTION
 */
 
-int cursor_origin(t_infos *infos);
-int cursor_commands(char c, t_infos *infos);
-int curs_right(t_infos *infos);
-int curs_left(t_infos *infos);
-int curs_down(t_infos *infos);
-int curs_up(t_infos *infos);
+int	 cursor_origin(t_infos *infos);
+int	 cursor_commands(char c, t_infos *infos);
+int	 curs_right(t_infos *infos);
+int	 curs_left(t_infos *infos);
+int	 curs_down(t_infos *infos);
+int	 curs_up(t_infos *infos);
 
 /*
 ** PRINTS

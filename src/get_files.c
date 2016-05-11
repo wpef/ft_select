@@ -6,7 +6,6 @@ int		get_files(int ac, char **av, t_infos *infos)
 	if ((infos->files = make_filelist(av)) != NULL)
 	{
 		infos->maxlen = get_maxlen(infos);
-		
 		return (1);
 	}
 	return (-1);
@@ -37,6 +36,20 @@ t_files	*make_filelist(char **av)
 		i++;
 	}
 	return (filelist);
+}
+
+int	make_loop(t_files *list)
+{
+	t_files *start;
+	t_files *end;
+
+	start = list;
+	end = list;
+	while (end->next)
+		end = end->next;
+	end->next = start;
+	start->prev = end;
+	return (1);
 }
 
 t_files	*init_list(char *av)
