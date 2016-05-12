@@ -4,8 +4,7 @@ int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
 {
 	if (ft_strcmp("ri", pos) == 0)
 	{
-		if (ptr->x_pos == (infos->width * (infos->nb_col - 1))
-			&& ptr->y_pos > infos->files->prev->y_pos)
+		if ((ptr->col == (infos->nb_col - 1)) && (ptr->y_pos > infos->files->prev->y_pos))
 			return (1);
 		if (ptr->x_pos + ptr->len >= infos->ws_col - infos->width)
 			return (2);
@@ -21,7 +20,7 @@ int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
 	{
 		if (ptr->x_pos == 0)
 		{
-			if (ptr->y_pos >= infos->files->prev->y_pos)
+			if (ptr->y_pos > infos->files->prev->y_pos)
 				return (2);
 			return (1);
 		}

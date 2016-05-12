@@ -23,6 +23,7 @@ typedef struct		s_files
 	int				len;
 	int				x_pos;
 	int				y_pos;
+	int				col;
 	struct s_files	*next;
 }					t_files;
 

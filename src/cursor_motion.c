@@ -85,7 +85,7 @@ int	curs_left(t_infos *infos)
 	file = infos->cr_pos;
 	no_next = has_no_next(file, "le", infos);
 	print_file(file, NULL, infos);
-	if (no_next > 0)
+	if (no_next == 2)
 		file = infos->files->prev;
 	else
 	{

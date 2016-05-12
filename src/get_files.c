@@ -95,6 +95,7 @@ int		get_filepos(t_infos *infos)
 	{
 		ptr->y_pos = row;
 		ptr->x_pos = col * infos->width;
+		ptr->col = col + 1;
 		row++;
 		if (row >= infos->nb_row)
 		{
