@@ -5,7 +5,7 @@ int		get_files(int ac, char **av, t_infos *infos)
 	infos->nbfiles = ac - 1;
 	if ((infos->files = make_filelist(av)) != NULL)
 	{
-		infos->maxlen = get_maxlen(infos);
+		infos->width = get_maxlen(infos);
 		return (1);
 	}
 	return (-1);
@@ -93,13 +93,13 @@ int		get_filepos(t_infos *infos)
 	ptr = infos->files;
 	while (ptr != NULL)
 	{
-		ptr->x_pos = col;
 		ptr->y_pos = row;
-		col = col + infos->maxlen + 1;
-		if (col + ptr->len >= infos->ws_col)
+		ptr->x_pos = col * infos->width;
+		row++;
+		if (row >= infos->ws_row)
 		{
-			row++;
-			col = 0;
+			col++;
+			row = 0;
 		}
 		ptr = ptr->next;
 	}

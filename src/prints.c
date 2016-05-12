@@ -4,6 +4,8 @@ int	print_file(t_files *ptr, char *opt, t_infos *infos)
 {
 	int			len;
 
+	if (infos == NULL)
+		return (-1);
 	if (opt)
 	{
 		if (ft_strcmp(opt, "ul") == 0)
@@ -11,12 +13,6 @@ int	print_file(t_files *ptr, char *opt, t_infos *infos)
 	}
 	else
 		ft_putstr(ptr->file);
-	len = ptr->len;
-	while (len <= infos->maxlen)
-	{
-		ft_putchar(' ');
-		len++;
-	}
 	return (1);
 }
 
@@ -28,4 +24,11 @@ int	print_ulfile(t_files *ptr)
 		if (tputs(tgetstr("ue", NULL), 1, putchar_std) == ERR)
 			return (-1);
 		return (1);
+}
+
+int	print_file_at(t_files *ptr)
+{
+		tputs(tgoto(tgetstr("cm", NULL), ptr->x_pos, ptr->y_pos), 1, putchar_std);
+		ft_putstr(ptr->file);
+		return(1);
 }

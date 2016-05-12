@@ -13,22 +13,28 @@ int		get_infos(int ac, char **av, t_infos *infos)
 int		get_winsize(t_infos *infos)
 {
 	struct winsize w;
-	int	max_col;
-	int	max_row;
+	int	nb_col;
+	int	nb_row;
 
 	ioctl(0, TIOCGWINSZ, &w);
 	infos->ws_row = w.ws_row;
 	infos->ws_col = w.ws_col;
-	max_col = infos->ws_col / infos->maxlen;
-	max_row = infos->nbfiles / max_col;
-	infos->max_col = max_col;
-	infos->max_row = max_row;
+	nb_col = 1;
+	nb_row = infos->nbfiles;
+	while (nb_row >= infos->ws_row)
+	{
+		nb_col++;
+		nb_row = nb_row / 2 ;
+	}
+	infos->nb_col = nb_col;
+	infos->nb_row = nb_row;
 	return (1);
 }
 
 int		check_winsize(t_infos *infos)
 {
-	if (infos->max_row <= infos->ws_row)
+	if (infos->nb_row <= infos->ws_row &&
+		((infos->nb_col * infos->width) <= infos->ws_col))
 		return (1);
 	else
 		return (-1);

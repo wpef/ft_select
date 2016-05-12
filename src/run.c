@@ -41,14 +41,11 @@ int	print_list(t_infos *infos)
 	t_files *ptr;
 	int		col;
 
-	col = 0; //col doit recuperre une valeure dans INFOS
+	col = 0;
 	ptr = infos->files;
 	while (ptr != NULL)
 	{
-		if (col	!= 0 && col % infos->max_col == 0)
-			ft_putchar('\n');
-		print_file(ptr, NULL, infos);
-		col++;
+		print_file_at(ptr);
 		ptr = ptr->next;
 	}
 	return (1);

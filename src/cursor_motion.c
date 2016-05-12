@@ -29,7 +29,7 @@ int	cursor_commands(char c, t_infos *infos)
 		return(sl_error("cursor", infos));
 }
 
-int	curs_right(t_infos *infos)
+int	curs_down(t_infos *infos)
 {
 	t_files	*file;
 	
@@ -43,7 +43,7 @@ int	curs_right(t_infos *infos)
 	return (1);
 }
 
-int	curs_left(t_infos *infos)
+int	curs_up(t_infos *infos)
 {
 	t_files	*file;
 	
@@ -57,7 +57,7 @@ int	curs_left(t_infos *infos)
 	return (1);
 }
 
-int	curs_down(t_infos *infos)
+int	curs_right(t_infos *infos)
 {
 	t_files	*file;
 	int i;
@@ -65,7 +65,7 @@ int	curs_down(t_infos *infos)
 	i = 1;
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
-	while (i <= infos->max_col)
+	while (i <= infos->nb_col)
 	{
 		infos->cr_pos = file->next;
 		file = file->next;
@@ -77,7 +77,7 @@ int	curs_down(t_infos *infos)
 	return (1);
 }
 
-int	curs_up(t_infos *infos)
+int	curs_left(t_infos *infos)
 {
 	t_files	*file;
 	int i;
@@ -85,7 +85,7 @@ int	curs_up(t_infos *infos)
 	i = 1;
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
-	while (i <= infos->max_col)
+	while (i <= infos->nb_col)
 	{
 		infos->cr_pos = file->prev;
 		file = file->prev;

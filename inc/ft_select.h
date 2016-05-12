@@ -36,9 +36,9 @@ typedef	struct		s_infos
 	t_files		*cr_pos;
 	int		cr_col;
 	int		cr_row;
-	int		max_col; //nombre total de colone
-	int		max_row; //nombre max de ligne
-	int		maxlen; // largeur des colones
+	int		nb_col; //nombre total de colone
+	int		nb_row; //nombre max de ligne
+	int		width; // largeur des colones
 	int		fd;
 }					t_infos;
 
@@ -106,5 +106,6 @@ int	 curs_up(t_infos *infos);
 
 int	print_file(t_files *ptr, char *opt, t_infos *infos);
 int	print_ulfile(t_files *ptr);
+int	print_file_at(t_files *ptr);
 
 #endif
