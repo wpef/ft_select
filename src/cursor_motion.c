@@ -61,11 +61,11 @@ int	curs_right(t_infos *infos)
 	i = 1;
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
-	file = file->next;
 	if (has_no_next(file, "ri", infos) == 1)
 		file = infos->files->prev;
 	else
 	{
+		file = file->next;
 		while (file->y_pos != infos->cr_pos->y_pos)
 			file = file->next;
 		if (file->y_pos != infos->nb_row - 1
@@ -80,16 +80,16 @@ int	curs_right(t_infos *infos)
 int	curs_left(t_infos *infos)
 {
 	t_files	*file;
-	int i;
+	int no_next;
 
-	i = 1;
 	file = infos->cr_pos;
+	no_next = has_no_next(file, "le", infos);
 	print_file(file, NULL, infos);
-	file = file->prev;
-	if (infos->cr_pos->x_pos == 0)
+	if (no_next > 0)
 		file = infos->files->prev;
 	else
 	{
+		file = file->prev;
 		while (file->y_pos != infos->cr_pos->y_pos)
 			file = file->prev;
 	}

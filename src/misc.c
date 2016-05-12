@@ -20,7 +20,11 @@ int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
 	else if (ft_strcmp("le", pos) == 0)
 	{
 		if (ptr->x_pos == 0)
+		{
+			if (ptr->y_pos >= infos->files->prev->y_pos)
+				return (2);
 			return (1);
+		}
 	}
 	else if (ft_strcmp("up", pos) == 0)
 	{

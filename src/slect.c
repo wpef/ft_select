@@ -54,8 +54,7 @@ int main(int ac, char **av)
 		return (-1);
 	run_select(&infos);
 	//debug
-	printf("NB COL = %d, WS_COL = %d\n", infos.nb_col * infos.width, infos.ws_col);
-		//end of
+	//end of
 	tcsetattr(0, TCSADRAIN, &infos.term.origin_termios);
 	return (1);
 }
