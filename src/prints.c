@@ -2,8 +2,6 @@
 
 int	print_file(t_files *ptr, char *opt, t_infos *infos)
 {
-	int			len;
-
 	if (infos == NULL)
 		return (-1);
 	if (opt)

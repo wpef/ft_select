@@ -65,17 +65,21 @@ int	curs_right(t_infos *infos)
 	i = 1;
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
-	while (i <= infos->nb_col)
+	file = file->next;
+	while (file->y_pos != infos->cr_pos->y_pos)
 	{
-		infos->cr_pos = file->next;
 		file = file->next;
-		i++;
+		if (ft_strcmp(file->file, infos->cr_pos->file) == 0)
+			return(no_right(file, infos));
 	}
+	infos->cr_pos = file;
 	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	print_file(file, "ul", infos);
 	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	return (1);
 }
+
+int	no_right(t_files *file, t_infos *infos)
 
 int	curs_left(t_infos *infos)
 {
