@@ -109,4 +109,6 @@ int		print_file(t_files *ptr, char *opt, t_infos *infos);
 int		print_ulfile(t_files *ptr);
 int		print_file_at(t_files *ptr);
 
+
+int		has_no_next(t_files *ptr, char *pos, t_infos *infos);
 #endif

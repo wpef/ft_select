@@ -37,9 +37,7 @@ int	curs_down(t_infos *infos)
 	print_file(file, NULL, infos);
 	infos->cr_pos = file->next;
 	file = file->next;
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	print_file(file, "ul", infos);
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	return (1);
 }
 
@@ -51,9 +49,7 @@ int	curs_up(t_infos *infos)
 	print_file(file, NULL, infos);
 	infos->cr_pos = file->prev;
 	file = file->prev;
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	print_file(file, "ul", infos);
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	return (1);
 }
 
@@ -66,24 +62,19 @@ int	curs_right(t_infos *infos)
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
 	file = file->next;
-	while (file->y_pos != infos->cr_pos->y_pos)
+	if (has_no_next(file, "ri", infos) == 1)
+		file = infos->files->prev;
+	else
 	{
-		file = file->next;
-		if (ft_strcmp(file->file, infos->cr_pos->file) == 0)
-			return(no_right(file, infos));
+		while (file->y_pos != infos->cr_pos->y_pos)
+			file = file->next;
+		if (file->y_pos != infos->nb_row - 1
+			&& file->x_pos < infos->cr_pos->x_pos)
+			file = file->next;
 	}
 	infos->cr_pos = file;
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	print_file(file, "ul", infos);
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	return (1);
-}
-
-int	no_right(t_files *file, t_infos *infos)
-{
-	if (file && infos)
-		return (1);
-	return (-1);
 }
 
 int	curs_left(t_infos *infos)
@@ -94,15 +85,16 @@ int	curs_left(t_infos *infos)
 	i = 1;
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
-	while (i <= infos->nb_col)
+	file = file->prev;
+	if (infos->cr_pos->x_pos == 0)
+		file = infos->files->prev;
+	else
 	{
-		infos->cr_pos = file->prev;
-		file = file->prev;
-		i++;
+		while (file->y_pos != infos->cr_pos->y_pos)
+			file = file->prev;
 	}
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
+	infos->cr_pos = file;
 	print_file(file, "ul", infos);
-	tputs(tgoto(tgetstr("cm", NULL), file->x_pos, file->y_pos), 1, putchar_std);
 	return (1);
 }
 

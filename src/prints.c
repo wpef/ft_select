@@ -12,6 +12,7 @@ int	print_file(t_files *ptr, char *opt, t_infos *infos)
 	}
 	else
 		ft_putstr(ptr->file);
+	tputs(tgoto(tgetstr("cm", NULL), ptr->x_pos, ptr->y_pos), 1, putchar_std);
 	return (1);
 }
 

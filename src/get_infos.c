@@ -27,7 +27,7 @@ int		get_winsize(t_infos *infos)
 		nb_row = nb_row / 2 ;
 	}
 	infos->nb_col = nb_col;
-	infos->nb_row = nb_row;
+	infos->nb_row = infos->ws_row;
 	return (1);
 }
 

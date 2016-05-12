@@ -54,17 +54,18 @@ int main(int ac, char **av)
 		return (-1);
 	run_select(&infos);
 	//debug
-	t_files *ptr;
-	ptr = infos.files;
-	printf("WINDOW is %d ROWS && %d COL\n", infos.ws_row, infos.ws_col);
-	printf("%d ROWS && %d COL of %d char width\n", infos.nb_row, infos.nb_col, infos.width);
-	while (ptr != NULL)
-	{
-		printf("%s :: row %d col %d\n", ptr->file, ptr->y_pos, ptr->x_pos);
-		ptr = ptr->next;
-	}
+	printf("NB COL = %d, WS_COL = %d\n", infos.nb_col * infos.width, infos.ws_col);
 		//end of
 	tcsetattr(0, TCSADRAIN, &infos.term.origin_termios);
 	return (1);
 }
 
+//	t_files *ptr;
+//	ptr = infos.files;
+//	printf("WINDOW is %d ROWS && %d COL\n", infos.ws_row, infos.ws_col);
+//	printf("%d ROWS && %d COL of %d char width\n", infos.nb_row, infos.nb_col, infos.width);
+//	while (ptr != NULL)
+//	{
+//		printf("%s :: row %d col %d\n", ptr->file, ptr->y_pos, ptr->x_pos);
+//		ptr = ptr->next;
+//	}
