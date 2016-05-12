@@ -45,7 +45,7 @@ int	print_list(t_infos *infos)
 	ptr = infos->files;
 	while (ptr != NULL)
 	{
-		print_file_at(ptr);
+		print_file(ptr, NULL, infos);
 		ptr = ptr->next;
 	}
 	return (1);

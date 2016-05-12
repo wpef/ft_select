@@ -80,6 +80,11 @@ int	curs_right(t_infos *infos)
 }
 
 int	no_right(t_files *file, t_infos *infos)
+{
+	if (file && infos)
+		return (1);
+	return (-1);
+}
 
 int	curs_left(t_infos *infos)
 {
