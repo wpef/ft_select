@@ -10,6 +10,8 @@ int	read_commands(t_infos *infos)
 	{
 		if (buf[0] == 27)
 		{
+			if (buf[1] == 0 && buf[2] == 0)
+				break;
 			if (buf[1] == 91)
 				cursor_commands(buf[2], infos);
 		}
