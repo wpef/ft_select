@@ -53,19 +53,6 @@ int main(int ac, char **av)
 	if (get_infos(ac, av, &infos) == -1)
 		return (-1);
 	run_select(&infos);
-	//debug
-	t_files *ptr;
-	t_files *last;
-	ptr = infos.files;
-	last = infos.files;
-	while (last->next)
-		last = last->next;
-	while (ptr)
-	{
-		printf("%s::\tsi %d == %d-1 && %d > %d\n", ptr->file, ptr->col, infos.nb_col, ptr->y_pos, last->y_pos);
-		ptr = ptr->next;
-	}
-	//end of
 	tcsetattr(0, TCSADRAIN, &infos.term.origin_termios);
 	return (1);
 }
@@ -79,3 +66,19 @@ int main(int ac, char **av)
 //		printf("%s :: row %d col %d\n", ptr->file, ptr->y_pos, ptr->x_pos);
 //		ptr = ptr->next;
 //	}
+
+
+/*debug
+	t_files *ptr;
+	t_files *last;
+	ptr = infos.files;
+	last = infos.files;
+	while (last->next)
+		last = last->next;
+	while (ptr)
+	{
+		printf("%s::\tsi %d == %d-1 && %d > %d\n", ptr->file, ptr->col, infos.nb_col, ptr->y_pos, last->y_pos);
+		ptr = ptr->next;
+	}
+	
+END OF*/
