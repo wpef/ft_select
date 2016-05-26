@@ -21,6 +21,7 @@ typedef struct		s_files
 	struct s_files	*prev;
 	char			*file;
 	int				len;
+	int				slect;
 	int				x_pos;
 	int				y_pos;
 	int				col;
@@ -88,6 +89,7 @@ int		putchar_fd(int c);
 */
 
 int		read_commands(t_infos *infos);
+int		select_it(t_infos *infos);
 int		sl_error(char *id, t_infos *infos);
 
 /*

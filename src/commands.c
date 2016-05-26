@@ -16,12 +16,23 @@ int	read_commands(t_infos *infos)
 			else if (buf[1] == '\0')
 				return (0);
 		}
+		else if (buf[0] == 32 && buf[1] == 0)
+			select_it(infos);
 		ft_bzero(buf, 3); 
 	}	
 	//return (run_select(term, infos));
 	return (1);
 }
 
+int	select_it(t_infos *infos)
+{
+	if (infos->cr_pos->slect == 0)
+		infos->cr_pos->slect = 1;
+	else 
+		infos->cr_pos->slect = 0;
+	curs_down(infos);
+	return (1);
+}
 
 /*
 ** XX FLECHES :

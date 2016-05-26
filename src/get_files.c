@@ -29,6 +29,7 @@ t_files	*make_filelist(char **av)
 		ptr2->prev = ptr;
 		ptr2->file = av[i];
 		ptr2->len = ft_strlen(av[i]);
+		ptr2->slect = 0;
 		ptr2->next = NULL;
 		ptr->next = ptr2;
 		ptr = ptr->next;
