@@ -32,3 +32,17 @@ int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
 	}
 	return (0);
 }
+
+int	free_node(t_files *file, t_infos *infos)
+{
+	t_files	*ptr;
+
+	ptr = infos->files;
+	while (ft_strcmp(file->file, ptr->file) != 0)
+		ptr = ptr->next;
+	ptr->next->prev = ptr->prev;
+	ptr->prev->next = ptr->next;
+	free(file);
+	free(ptr);
+	return(1);
+}
