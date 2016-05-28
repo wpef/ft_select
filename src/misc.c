@@ -40,6 +40,8 @@ int	free_node(t_files *file, t_infos *infos)
 	ptr = infos->files;
 	while (ft_strcmp(file->file, ptr->file) != 0)
 		ptr = ptr->next;
+	if (ft_strcmp(infos->files->file, file->file) == 0)
+		infos->files = infos->files->next;
 	ptr->next->prev = ptr->prev;
 	ptr->prev->next = ptr->next;
 	free(file);
