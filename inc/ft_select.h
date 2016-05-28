@@ -114,4 +114,5 @@ int		print_file_at(t_files *ptr);
 
 
 int		has_no_next(t_files *ptr, char *pos, t_infos *infos);
+int		free_node(t_files *file, t_infos *infos);
 #endif
