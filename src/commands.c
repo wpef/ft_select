@@ -2,19 +2,19 @@
 
 int	read_commands(t_infos *infos)
 {
-	char buf[3];
+	char *buf;
 
-	ft_bzero(buf, 3); 
+	buf = ft_strnew(2); 
 	if (infos == NULL)
 		return (-1);
 	while (read(0, buf, 3) > 0)
 	{
 		if (buf[0] == 27)
 		{
+			if (buf[1] == '\0')
+				return (0);
 			if (buf[1] == 91)
 				cursor_commands(buf[2], infos);
-			else if (buf[1] == '\0')
-				return (0);
 		}
 		else if (buf[0] == 32 && buf[1] == 0)
 			select_it(infos);
