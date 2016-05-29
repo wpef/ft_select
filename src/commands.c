@@ -4,7 +4,7 @@ int	read_commands(t_infos *infos)
 {
 	char *buf;
 
-	buf = ft_strnew(2); 
+	buf = ft_strnew(3); 
 	if (infos == NULL)
 		return (-1);
 	while (read(0, buf, 3) > 0)
