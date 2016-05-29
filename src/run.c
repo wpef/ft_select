@@ -2,9 +2,10 @@
 
 int run_select(t_infos *infos)
 {
-	if (init_print(infos) == -1)
-		return (-1);
+	//if (init_print(infos) == -1)
+	//	return (-1);
 	make_loop(infos->files);
+	free_node(infos->files, infos);
 	read_commands(infos);
 	return (1);
 }
@@ -25,6 +26,7 @@ int	init_print(t_infos *infos)
 	}
 	ft_putendl("ERROR");
 	return (sl_error("winsize", infos));
+	free_node(infos->files, infos);
 }
 
 int	clean(int fd)
