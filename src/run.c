@@ -26,7 +26,6 @@ int	init_print(t_infos *infos)
 	}
 	ft_putendl("ERROR");
 	return (sl_error("winsize", infos));
-	free_node(infos->files, infos);
 }
 
 int	clean(int fd)
