@@ -33,6 +33,15 @@ int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
 	return (0);
 }
 
+/*
+** NOTE FOR FREE NODE
+** **************************
+** !!!!! TO BE USED AFTER LOOP !!!!!!
+** **************************
+** file must be a pointer to 
+** a node of infos->files
+** **************************
+*/
 int	free_node(t_files *file, t_infos *infos)
 {
 	t_files	*ptr;
@@ -44,7 +53,6 @@ int	free_node(t_files *file, t_infos *infos)
 		infos->files = infos->files->next;
 	ptr->next->prev = ptr->prev;
 	ptr->prev->next = ptr->next;
-	free(file);
 	free(ptr);
 	return(1);
 }
