@@ -11,7 +11,7 @@ int		get_files(int ac, char **av, t_infos *infos)
 	return (-1);
 }
 
-t_files	*make_filelist(char **av)
+t_files		*make_filelist(char **av)
 {
 	t_files *filelist;
 	t_files	*ptr;
@@ -39,7 +39,7 @@ t_files	*make_filelist(char **av)
 	return (filelist);
 }
 
-int	make_loop(t_files *list)
+int		make_loop(t_files *list)
 {
 	t_files *start;
 	t_files *end;
@@ -53,7 +53,7 @@ int	make_loop(t_files *list)
 	return (1);
 }
 
-t_files	*init_list(char *av)
+t_files		*init_list(char *av)
 {
 	t_files	*filelist;
 
@@ -67,7 +67,7 @@ t_files	*init_list(char *av)
 	return (filelist);
 }
 
-int	get_maxlen(t_infos *infos)
+int		get_maxlen(t_infos *infos)
 {
 	t_files	*ptr;
 	int	maxlen;

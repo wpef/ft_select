@@ -66,8 +66,8 @@ int		check_winsize(t_infos *infos);
 ** GET FILES
 */
 
-t_files	*make_filelist(char **av);
-t_files	*init_list(char *av);
+t_files		*make_filelist(char **av);
+t_files		*init_list(char *av);
 int		get_maxlen(t_infos *infos);
 int		get_filepos(t_infos *infos);
 int		make_loop(t_files *file);
@@ -91,6 +91,7 @@ int		putchar_fd(int c);
 int		read_commands(t_infos *infos);
 int		select_it(t_infos *infos);
 int		sl_error(char *id, t_infos *infos);
+int		delete_it(t_infos *infos);
 
 /*
 ** MOTION
@@ -112,7 +113,11 @@ int		print_file(t_files *ptr, char *opt, t_infos *infos);
 int		print_ulfile(t_files *ptr);
 int		print_file_at(t_files *ptr);
 
+/*
+** MISC
+*/
 
 int		has_no_next(t_files *ptr, char *pos, t_infos *infos);
 int		free_node(t_files *file, t_infos *infos);
+int		make_unloop(t_files *file);
 #endif

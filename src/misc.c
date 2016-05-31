@@ -56,3 +56,14 @@ int	free_node(t_files *file, t_infos *infos)
 	free(ptr);
 	return(1);
 }
+
+int	make_unloop(t_files *list)
+{
+	t_files	*ptr;
+	ptr = list;
+	if (list == NULL)
+		return (-1);
+	ptr = ptr->prev; 
+	ptr->next = NULL;
+	return (1);
+}

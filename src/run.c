@@ -2,10 +2,9 @@
 
 int run_select(t_infos *infos)
 {
-	//if (init_print(infos) == -1)
-	//	return (-1);
+	if (init_print(infos) == -1)
+		return (-1);
 	make_loop(infos->files);
-	free_node(infos->files, infos);
 	read_commands(infos);
 	return (1);
 }
