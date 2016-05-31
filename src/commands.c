@@ -15,8 +15,8 @@ int	read_commands(t_infos *infos)
 			cursor_commands(buf[2], infos);
 		else if (buf[0] == 32 && buf[1] == 0)
 			select_it(infos);
-		else if ((buf[0] == 127 && buf[1] == 91 && buf[2] == 68)
-			|| (buf[0] == 126 && buf[1] == 91 && buf[2] == 51))
+		else if ((buf[0] == 127 && buf[1] == 0 /*&& buf[2] == 68)
+			|| (buf[0] == 126 && buf[1] == 91 && buf[2] == 51*/))
 			delete_it(infos);
 		ft_bzero(buf, 3); 
 	}	
