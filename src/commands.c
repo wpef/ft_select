@@ -5,7 +5,7 @@ int	read_commands(t_infos *infos)
 	char *buf;
 
 	buf = ft_strnew(3); 
-	if (infos == NULL)
+	if (infos->files == NULL)
 		return (-1);
 	while (read(0, buf, 3) > 0)
 	{
@@ -36,6 +36,9 @@ int	select_it(t_infos *infos)
 
 int	delete_it(t_infos *infos)
 {
+	infos->old_pos = infos->cr_pos->next;
+	if (infos->nbfiles == 1)
+		exit(0); //un jolie return ICI
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
 	get_filepos(infos);
@@ -51,10 +54,10 @@ int	delete_it(t_infos *infos)
 ** XX right: 27/91/67
 ** XX left	: 27/91/68
 **
-** SPC	: 32/91/67
-** DEL1	: 127/91/68
-** DEL2	: 126/91/51
-** RETN	: 10/91/68
+** SPC	: 32/91/67 //FAUX
+** DEL1	: 127/91/68 //FAUX
+** DEL2	: 126/91/51 //FAUX
+** RETN	: 10/91/68 //FAUX
 ** XX ESC : 27/0/0 XX
 */
 

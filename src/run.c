@@ -4,6 +4,11 @@ int run_select(t_infos *infos)
 {
 	if (init_print(infos) == -1)
 		return (-1);
+	if (infos->old_pos != NULL)
+	{
+		curs_to(infos->old_pos, infos);
+		infos->old_pos = NULL;
+	}
 	make_loop(infos->files);
 	read_commands(infos);
 	return (1);
@@ -11,7 +16,7 @@ int run_select(t_infos *infos)
 
 int	init_print(t_infos *infos)
 {
-	if (infos == NULL)
+	if (infos->files == NULL)
 		return (-1);
 	clean(1);
 	if (check_winsize(infos) == 1)

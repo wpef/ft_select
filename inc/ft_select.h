@@ -36,6 +36,7 @@ typedef	struct		s_infos
 	int		ws_row;
 	int		ws_col;
 	t_files		*cr_pos;
+	t_files		*old_pos;
 	int		cr_col;
 	int		cr_row;
 	int		nb_col; //nombre total de colone
@@ -104,6 +105,7 @@ int		no_right(t_files *file, t_infos *infos);
 int		curs_left(t_infos *infos);
 int		curs_down(t_infos *infos);
 int		curs_up(t_infos *infos);
+int		curs_to(t_files *dest, t_infos *infos);
 
 /*
 ** PRINTS

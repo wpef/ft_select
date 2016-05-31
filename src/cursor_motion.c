@@ -98,3 +98,15 @@ int	curs_left(t_infos *infos)
 	return (1);
 }
 
+int	curs_to(t_files *dest, t_infos *infos)
+{
+	t_files	*old;
+
+	old = infos->cr_pos;
+	if (old == NULL || dest == NULL || infos == NULL)
+		return (-1);
+	print_file(old, NULL, infos);
+	print_file(dest, "ul", infos);
+	infos->cr_pos = dest;
+	return(1);
+}
