@@ -39,7 +39,7 @@ int	delete_it(t_infos *infos)
 {
 	infos->old_pos = infos->cr_pos->next;
 	if (infos->nbfiles == 1)
-		exit(0); //un jolie return ICI
+		return (-1); //un jolie return ICI
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
 	get_filepos(infos);
