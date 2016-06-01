@@ -39,20 +39,6 @@ t_files		*make_filelist(char **av)
 	return (filelist);
 }
 
-int		make_loop(t_files *list)
-{
-	t_files *start;
-	t_files *end;
-
-	start = list;
-	end = list;
-	while (end->next)
-		end = end->next;
-	end->next = start;
-	start->prev = end;
-	return (1);
-}
-
 t_files		*init_list(char *av)
 {
 	t_files	*filelist;
@@ -65,22 +51,6 @@ t_files		*init_list(char *av)
 	filelist->len = ft_strlen(av);
 	filelist->next = NULL;
 	return (filelist);
-}
-
-int		get_maxlen(t_infos *infos)
-{
-	t_files	*ptr;
-	int	maxlen;
-
-	maxlen = 0;
-	ptr = infos->files;
-	while (ptr)
-	{
-		if (ptr->len + 1 > maxlen)
-			maxlen = ptr->len + 1;
-		ptr = ptr->next;
-	}
-	return (maxlen);
 }
 
 int		get_filepos(t_infos *infos)

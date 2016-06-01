@@ -67,3 +67,33 @@ int	make_unloop(t_files *list)
 	ptr->next = NULL;
 	return (1);
 }
+
+int		make_loop(t_files *list)
+{
+	t_files *start;
+	t_files *end;
+
+	start = list;
+	end = list;
+	while (end->next)
+		end = end->next;
+	end->next = start;
+	start->prev = end;
+	return (1);
+}
+
+int		get_maxlen(t_infos *infos)
+{
+	t_files	*ptr;
+	int	maxlen;
+
+	maxlen = 0;
+	ptr = infos->files;
+	while (ptr)
+	{
+		if (ptr->len + 1 > maxlen)
+			maxlen = ptr->len + 1;
+		ptr = ptr->next;
+	}
+	return (maxlen);
+}

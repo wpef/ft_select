@@ -10,8 +10,7 @@ int run_select(t_infos *infos)
 		infos->old_pos = NULL;
 	}
 	make_loop(infos->files);
-	read_commands(infos);
-	return (1);
+	return (read_commands(infos));
 }
 
 int	init_print(t_infos *infos)
