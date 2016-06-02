@@ -1,0 +1,82 @@
+Norme: ./src/error.c
+Error: 42 header not at top of the file
+Error (line 12): line has 84 characters
+Norme: ./src/commands.c
+Error: 42 header not at top of the file
+Error (line 7): spaces at the end of line
+Error (line 25): spaces at the end of line
+Error (line 26): spaces at the end of line
+Error (line 26, col 1): no newline after block
+Error (line 27): C++ comment
+Error (line 35): spaces at the end of line
+Error (line 53): declarations must be followed by one empty line in slect_return
+Error (line 58, col 7): Spacing after call to clean
+Error (line 67): comment not well formatted
+Error (line 81): multiple empty lines
+Error (line 82): comment not well formatted
+Error (line 83): spaces at the end of line
+Norme: ./src/get_infos.c
+Error: 42 header not at top of the file
+Error (line 13): declarations in get_winsize are bad aligned
+Norme: ./src/prints.c
+Error: 42 header not at top of the file
+Error (line 11): bad indentation
+Error (line 22): bad indentation
+Error (line 23): bad indentation
+Error (line 24): bad indentation
+Error (line 25): bad indentation
+Error (line 26): bad indentation
+Error (line 27): bad indentation
+Norme: ./src/get_files.c
+Error: global scope bad aligned
+Error: 42 header not at top of the file
+Error (line 48): C++ comment
+Norme: ./src/run.c
+Error: 6 functions in the file
+Error: 42 header not at top of the file
+Error (line 3): Space before function name
+Error (line 23): bad indentation
+Error (line 23): C++ comment
+Norme: ./src/misc.c
+Error: global scope bad aligned
+Error: 42 header not at top of the file
+Error (line 3): function has_no_next has 29 lines
+Error (line 7): line has 91 characters
+Error (line 41): spaces at the end of line
+Error (line 45): bad spacing before free_node
+Error (line 57, col 1): missing space after return
+Error (line 60): declarations must be followed by one empty line in make_unloop
+Error (line 66): spaces at the end of line
+Error (line 85): declarations in get_maxlen are bad aligned
+Norme: ./src/slect.c
+Error: 42 header not at top of the file
+Error (line 13): C++ comment
+Error (line 15): C++ comment
+Error (line 17): C++ comment
+Error (line 23): spaces at the end of line
+Error (line 47): Space before function name
+Error (line 60): C++ comment
+Error (line 61): C++ comment
+Error (line 62): C++ comment
+Error (line 63): C++ comment
+Error (line 63): line has 93 characters
+Error (line 64): C++ comment
+Error (line 65): C++ comment
+Error (line 66): C++ comment
+Error (line 67): C++ comment
+Error (line 68): C++ comment
+Error (line 70): multiple empty lines
+Error (line 71): comment not well formatted
+Error (line 80): line has 112 characters
+Error (line 83): spaces at the end of line
+Norme: ./src/cursor_motion.c
+Error: 7 functions in the file
+Error: 42 header not at top of the file
+Error (line 29, col 2): missing space after return
+Error (line 32): declarations must be followed by one empty line in curs_down
+Error (line 35): spaces at the end of line
+Error (line 44): declarations must be followed by one empty line in curs_up
+Error (line 47): spaces at the end of line
+Error (line 56): declarations in curs_right are bad aligned
+Error (line 80): declarations in curs_left are bad aligned
+Error (line 111, col 1): missing space after return

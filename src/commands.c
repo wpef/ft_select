@@ -10,15 +10,18 @@ int	read_commands(t_infos *infos)
 	while (read(0, buf, 3) > 0)
 	{
 		if (buf[0] == 27 && !buf[1])
-			return (0);
+		{
+			clean(1);
+			return (-1);
+		}
 		else if (buf[0] == 27 && buf[1] == 91)
 			cursor_commands(buf[2], infos);
 		else if (buf[0] == 32 && buf[1] == 0)
 			select_it(infos);
-		else if (buf[0] == 127 && buf[1] == 0)
+		else if ((buf[0] == 127 || buf[0] == 126) && buf[1] == 0)
 			return (delete_it(infos));
-	//	else if (buf[0] == 10)
-	//		return (slect_return(infos);
+		else if (buf[0] == 10)
+			return (slect_return(infos));
 		ft_bzero(buf, 3); 
 	}	
 	//return (run_select(term, infos));
@@ -39,15 +42,28 @@ int	delete_it(t_infos *infos)
 {
 	infos->old_pos = infos->cr_pos->next;
 	if (infos->nbfiles == 1)
-		return (-1); //un jolie return ICI
+		return (-1);
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
 	get_filepos(infos);
 	infos->nbfiles--;
-	run_select(infos);
-	return (1);
+	return (run_select(infos));
 }
 
+int	slect_return(t_infos *infos)
+{
+	t_files	*ptr;
+	ptr = infos->files;
+	make_unloop(infos->files);
+	clean (1);
+	while (ptr != NULL)
+	{
+		if (ptr->slect == 1)
+			ft_sdebug("% ", ptr->file);
+		ptr = ptr->next;
+	}
+	return (1);
+}
 /*
 ** XX FLECHES :
 ** XX up	: 27/91/65
