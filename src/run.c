@@ -57,7 +57,7 @@ int	print_list(t_infos *infos)
 
 int	putchar_std(int c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, 2);
 	return (c);
 }
 

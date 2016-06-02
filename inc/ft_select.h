@@ -93,6 +93,7 @@ int		read_commands(t_infos *infos);
 int		select_it(t_infos *infos);
 int		sl_error(char *id, t_infos *infos);
 int		delete_it(t_infos *infos);
+int		slect_return(t_infos *infos);
 
 /*
 ** MOTION
