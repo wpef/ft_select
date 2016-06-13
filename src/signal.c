@@ -9,6 +9,8 @@ void	signal_handler(int sig)
 void	signal_sigwinch(void)
 {
 	get_winsize(&infos);
-	if (check_winsize(&infos))
+	if (check_winsize(&infos) == 1)
 		ft_putendl("SI SI LA FAMILLE");
+	else
+		ft_putendl ("WTFFFFFFFFFFFFFFFFFFFF");
 }	
