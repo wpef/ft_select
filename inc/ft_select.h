@@ -4,6 +4,7 @@
 # include <curses.h>
 # include <sys/ioctl.h>
 # include <stdio.h> //to tej
+# include <signal.h>
 # include <term.h>
 # include <termcap.h>
 # include <termios.h>
@@ -128,4 +129,13 @@ int		has_no_next(t_files *ptr, char *pos, t_infos *infos);
 int		free_node(t_files *file, t_infos *infos);
 int		make_unloop(t_files *file);
 int		sl_termerror(char *id, char *termtype);
+
+/*
+** SIGNAL
+*/
+
+void		signal_handler(int sig);
+void		signal_sigwinch(void);
+int		wait_winsize(t_infos *infos);
+
 #endif

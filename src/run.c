@@ -2,6 +2,7 @@
 
 int run_select(t_infos *infos)
 {
+	signal(SIGWINCH, &signal_handler);
 	if (init_print(infos) == -1)
 		return (-1);
 	if (infos->old_pos != NULL)
@@ -27,7 +28,6 @@ int	init_print(t_infos *infos)
 		cursor_origin(infos);
 		return (1);
 	}
-	ft_putendl("ERROR");
 	return (sl_error("winsize", infos));
 }
 

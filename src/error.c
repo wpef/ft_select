@@ -3,10 +3,7 @@
 int	sl_error(char *id, t_infos *infos)
 {
 	if (ERROR("winsize"))
-	{
-		get_winsize(infos);
-		return (run_select(infos));
-	}
+		return (wait_winsize(infos));
 	else if (ERROR("usage"))
 	{
 		ft_putendl("usage :\tft_select");
@@ -34,4 +31,29 @@ int	sl_termerror(char *id, char *termtype)
 	else	
 		ft_sdebug("UNEXEPCTED ERROR :\tft_select\n\t%", id);
 	return (-1);
+}
+
+int	wait_winsize(t_infos *infos)
+{
+	char *buf;
+
+	buf = ft_strnew(3);
+	if (infos == NULL)
+		ft_putchar('?');
+	ft_putendl("THE WINDOW YOU ARE TRYING TO USE IS TOO");
+	ft_putendl("SMALL TO DISPLAY THE LIST OF FILE !");
+	ft_putendl("");
+	ft_putendl("You might resize the current window");
+	ft_putendl("or press ESC or CTR+C and retry with less file");
+	while (read(0, buf, 3) > 0)
+	{
+		if (buf[0] == 27 && !buf[1])
+		{
+			free(buf);
+			return (-1);
+		}
+		ft_bzero(buf, 3);
+	}
+	free(buf);
+	return (0);
 }
