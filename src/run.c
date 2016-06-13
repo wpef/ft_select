@@ -47,6 +47,7 @@ int	print_list(t_infos *infos)
 
 	col = 0;
 	ptr = infos->files;
+	get_filepos(infos);
 	while (ptr != NULL)
 	{
 		print_file(ptr, NULL, infos);

@@ -6,7 +6,7 @@ int		get_infos(int ac, char **av, t_infos *infos)
 		return (sl_error("usage", infos));
 	get_files(ac, av, infos);
 	get_winsize(infos);
-	get_filepos(infos);
+	//get_filepos(infos);
 	return (1);
 }
 
