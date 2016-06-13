@@ -7,14 +7,14 @@ int	get_termdata(t_term *term)
 
 	termtype = getenv("TERM");
 	if (termtype == NULL)
-		ft_putendl("Specify a terminal type with `export TERM <yourtype>'.\n");
+		return (sl_termerror("not set", termtype));
 	success = tgetent(NULL, termtype);
-	if (success < 0)
-		ft_putendl("Could not access the termcap data base.\n"); //error
-	else if (success == 0)
-		ft_sdebug("Terminal type % is not defined.\n", termtype); //error
+	if (success == 0)
+		return (sl_termerror("type", termtype));
+	else if (success < 0)
+		return (sl_termerror("terminfo", termtype));
 	else if (tcgetattr(0, &term->termios) == -1)
-		ft_putendl("Term info not reached"); //error
+		return (sl_termerror("info", termtype));
 	tcgetattr(0, &term->origin_termios);
 	return (success);
 }
@@ -46,8 +46,6 @@ int	init_newterm(t_term *term)
 
 int main(int ac, char **av)
 {
-	t_infos	infos;
-
 	if (init_newterm(&infos.term) == -1)
 		return (-1);
 	if (get_infos(ac, av, &infos) == -1)

@@ -7,6 +7,8 @@
 # include <term.h>
 # include <termcap.h>
 # include <termios.h>
+# define ERROR(ID) (ft_strcmp(ID, id) == 0 ? 1 : 0)
+
 
 typedef struct termios	t_termios;
 
@@ -44,6 +46,8 @@ typedef	struct		s_infos
 	int		width; // largeur des colones
 	int		fd;
 }					t_infos;
+
+t_infos		infos;
 
 /*
 ** INITIALISING NEWTERM MODE
@@ -123,4 +127,5 @@ int		print_file_at(t_files *ptr);
 int		has_no_next(t_files *ptr, char *pos, t_infos *infos);
 int		free_node(t_files *file, t_infos *infos);
 int		make_unloop(t_files *file);
+int		sl_termerror(char *id, char *termtype);
 #endif
