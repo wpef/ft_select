@@ -47,14 +47,14 @@ int	free_node(t_files *file, t_infos *infos)
 	t_files	*ptr;
 
 	ptr = infos->files;
-	while (ft_strcmp(file->file, ptr->file) != 0)
+	while (file->x_pos != ptr->x_pos || file->y_pos != ptr->y_pos)
 		ptr = ptr->next;
-	if (ft_strcmp(infos->files->file, file->file) == 0)
+	if (infos->files->x_pos == file->x_pos && infos->files->y_pos == ptr->y_pos)
 		infos->files = infos->files->next;
 	ptr->next->prev = ptr->prev;
 	ptr->prev->next = ptr->next;
 	free(ptr);
-	return(1);
+	return (1);
 }
 
 int	make_unloop(t_files *list)

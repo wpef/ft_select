@@ -41,12 +41,13 @@ int	select_it(t_infos *infos)
 int	delete_it(t_infos *infos)
 {
 	infos->old_pos = infos->cr_pos->next;
+	ft_idebug("NBFILES = %", infos->nbfiles);
 	if (infos->nbfiles == 1)
 		return (-1);
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
-	get_filepos(infos);
 	infos->nbfiles--;
+	get_filepos(infos);
 	return (run_select(infos));
 }
 
