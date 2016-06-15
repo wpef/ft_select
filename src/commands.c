@@ -41,9 +41,8 @@ int	select_it(t_infos *infos)
 int	delete_it(t_infos *infos)
 {
 	infos->old_pos = infos->cr_pos->next;
-	ft_idebug("NBFILES = %", infos->nbfiles);
 	if (infos->nbfiles == 1)
-		return (-1);
+		exit(0);
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
 	infos->nbfiles--;
@@ -63,7 +62,7 @@ int	slect_return(t_infos *infos)
 			ft_sdebug("% ", ptr->file);
 		ptr = ptr->next;
 	}
-	return (1);
+	exit(1);
 }
 /*
 ** XX FLECHES :
