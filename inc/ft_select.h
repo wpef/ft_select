@@ -48,7 +48,7 @@ typedef	struct		s_infos
 	int		fd;
 }					t_infos;
 
-t_infos		infos;
+t_infos		g_infos;
 
 /*
 ** INITIALISING NEWTERM MODE
