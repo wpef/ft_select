@@ -65,6 +65,7 @@ int	make_unloop(t_files *list)
 		return (-1);
 	ptr = ptr->prev; 
 	ptr->next = NULL;
+	list->loop = 0;
 	return (1);
 }
 
@@ -79,6 +80,7 @@ int		make_loop(t_files *list)
 		end = end->next;
 	end->next = start;
 	start->prev = end;
+	list->loop = 1;
 	return (1);
 }
 

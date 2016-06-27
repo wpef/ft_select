@@ -29,6 +29,7 @@ typedef struct		s_files
 	int				y_pos;
 	int				col;
 	struct s_files	*next;
+	int				loop;
 }					t_files;
 
 typedef	struct		s_infos
