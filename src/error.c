@@ -1,5 +1,7 @@
 #include "ft_select.h"
 
+//RESET TERM BEFOR EXTI
+
 int	sl_error(char *id, t_infos *infos)
 {
 	if (ERROR("winsize"))
