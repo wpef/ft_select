@@ -49,6 +49,7 @@ t_files		*init_list(char *av)
 	filelist->prev = NULL;
 	filelist->file = av;
 	filelist->len = ft_strlen(av);
+	filelist->slect = 0;
 	filelist->next = NULL;
 	return (filelist);
 }
