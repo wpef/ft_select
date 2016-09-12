@@ -1,0 +1,114 @@
+==25567== Memcheck, a memory error detector
+==25567== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==25567== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==25567== Command: ./a.out libft/Makefile libft/auteur libft/ft_atoi.c libft/ft_bzero.c libft/ft_cdebug.c libft/ft_charindex.c libft/ft_createtab.c libft/ft_freetab.c libft/ft_gnl.c libft/ft_idebug.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isblank.c libft/ft_isdigit.c libft/ft_ismoreblank.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_joinjoin.c libft/ft_lstadd.c libft/ft_lstdel.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstmap.c libft/ft_lstnew.c libft/ft_memalloc.c libft/ft_memccpy.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memdel.c libft/ft_memmove.c libft/ft_memset.c libft/ft_print_tab.c libft/ft_putchar.c libft/ft_putchar_fd.c libft/ft_putendl.c libft/ft_putendl_fd.c libft/ft_putnbr.c libft/ft_putnbr_fd.c libft/ft_putstr.c libft/ft_putstr_fd.c libft/ft_sdebug.c libft/ft_strcat.c libft/ft_strchr.c libft/ft_strclr.c libft/ft_strcmp.c libft/ft_strcpy.c libft/ft_strdel.c libft/ft_strdup.c libft/ft_strequ.c libft/ft_striter.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlen.c libft/ft_strmap.c libft/ft_strmapi.c libft/ft_strncat.c libft/ft_strnchr.c libft/ft_strncmp.c libft/ft_strncpy.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c libft/ft_tolower.c libft/ft_toupper.c libft/libft.a libft/libft.h
+==25567== Parent PID: 19671
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100001F97: print_file (prints.c:8)
+==25567==    by 0x100002359: print_list (run.c:53)
+==25567==    by 0x100002241: init_print (run.c:25)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100002013: print_file (prints.c:14)
+==25567==    by 0x100002359: print_list (run.c:53)
+==25567==    by 0x100002241: init_print (run.c:25)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100001F97: print_file (prints.c:8)
+==25567==    by 0x10000226B: init_print (run.c:27)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100002013: print_file (prints.c:14)
+==25567==    by 0x10000226B: init_print (run.c:27)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100001F97: print_file (prints.c:8)
+==25567==    by 0x10000107B: curs_down (cursor_motion.c:37)
+==25567==    by 0x100000F75: cursor_commands (cursor_motion.c:23)
+==25567==    by 0x100000BF8: read_commands (commands.c:18)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100002013: print_file (prints.c:14)
+==25567==    by 0x10000107B: curs_down (cursor_motion.c:37)
+==25567==    by 0x100000F75: cursor_commands (cursor_motion.c:23)
+==25567==    by 0x100000BF8: read_commands (commands.c:18)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100001F97: print_file (prints.c:8)
+==25567==    by 0x10000226B: init_print (run.c:27)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100002013: print_file (prints.c:14)
+==25567==    by 0x10000226B: init_print (run.c:27)
+==25567==    by 0x10000216B: run_select (run.c:6)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100001F97: print_file (prints.c:8)
+==25567==    by 0x10000132C: curs_to (cursor_motion.c:108)
+==25567==    by 0x1000021A6: run_select (run.c:10)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100002013: print_file (prints.c:14)
+==25567==    by 0x10000132C: curs_to (cursor_motion.c:108)
+==25567==    by 0x1000021A6: run_select (run.c:10)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x1000026FD: main (slect.c:53)
+==25567== 
+==25567== Conditional jump or move depends on uninitialised value(s)
+==25567==    at 0x100000E2E: slect_return (commands.c:61)
+==25567==    by 0x100000C8D: read_commands (commands.c:24)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567==    by 0x100000DCF: delete_it (in ./a.out)
+==25567==    by 0x100000C6C: read_commands (commands.c:22)
+==25567==    by 0x1000021D4: run_select (run.c:14)
+==25567== 
+==25567== 
+==25567== HEAP SUMMARY:
+==25567==     in use at exit: 32,350 bytes in 276 blocks
+==25567==   total heap usage: 387 allocs, 111 frees, 43,113 bytes allocated
+==25567== 
+==25567== LEAK SUMMARY:
+==25567==    definitely lost: 0 bytes in 0 blocks
+==25567==    indirectly lost: 0 bytes in 0 blocks
+==25567==      possibly lost: 0 bytes in 0 blocks
+==25567==    still reachable: 10,152 bytes in 87 blocks
+==25567==         suppressed: 22,198 bytes in 189 blocks
+==25567== Rerun with --leak-check=full to see details of leaked memory
+==25567== 
+==25567== For counts of detected and suppressed errors, rerun with: -v
+==25567== Use --track-origins=yes to see where uninitialised values come from
+==25567== ERROR SUMMARY: 121 errors from 11 contexts (suppressed: 0 from 0)
