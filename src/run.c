@@ -2,7 +2,6 @@
 
 int run_select(t_infos *infos)
 {
-	signal(SIGWINCH, &signal_handler);
 	if (init_print(infos) == -1)
 		return (-1);
 	if (infos->old_pos != NULL)
@@ -10,7 +9,6 @@ int run_select(t_infos *infos)
 		curs_to(infos->old_pos, infos);
 		infos->old_pos = NULL;
 	}
-	make_loop(infos->files);
 	return (read_commands(infos));
 }
 
@@ -19,13 +17,16 @@ int	init_print(t_infos *infos)
 	if (infos->files == NULL)
 		return (-1);
 	clean(1);
+	clean(2);
 	if (check_winsize(infos) == 1)
 	{
 		//open_newterm(infos);
+		cursor_origin(infos);
 		print_list(infos);
 		cursor_origin(infos);
 		print_file(infos->files, "ul", infos);
 		cursor_origin(infos);
+		make_loop(infos->files);
 		return (1);
 	}
 	return (sl_error("winsize", infos));

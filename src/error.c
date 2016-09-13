@@ -37,9 +37,8 @@ int	sl_termerror(char *id, char *termtype)
 
 int	wait_winsize(t_infos *infos)
 {
-	char *buf;
-
-	buf = ft_strnew(3);
+	clean(2);
+	clean(1);
 	if (infos == NULL)
 		ft_putchar('?');
 	ft_putendl("THE WINDOW YOU ARE TRYING TO USE IS TOO");
@@ -47,15 +46,5 @@ int	wait_winsize(t_infos *infos)
 	ft_putendl("");
 	ft_putendl("You might resize the current window");
 	ft_putendl("or press ESC or CTR+C and retry with less file");
-	while (read(0, buf, 3) > 0)
-	{
-		if (buf[0] == 27 && !buf[1])
-		{
-			free(buf);
-			return (-1);
-		}
-		ft_bzero(buf, 3);
-	}
-	free(buf);
 	return (0);
 }
