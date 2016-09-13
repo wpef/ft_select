@@ -53,6 +53,9 @@ int	delete_it(t_infos *infos)
 int	slect_return(t_infos *infos)
 {
 	t_files	*ptr;
+	int first;
+
+	first = 0;
 	ptr = infos->files;
 	make_unloop(infos->files);
 	clean(1);
@@ -61,8 +64,10 @@ int	slect_return(t_infos *infos)
 	{
 		if (ptr->slect == 1)
 		{
+			if (first > 0)
+				ft_putchar(' ');
+			first ++;
 			ft_putstr(ptr->file);
-			ft_putchar(' ');
 		}
 		ptr = ptr->next;
 	}
