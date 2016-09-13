@@ -55,11 +55,15 @@ int	slect_return(t_infos *infos)
 	t_files	*ptr;
 	ptr = infos->files;
 	make_unloop(infos->files);
-	clean (1);
+	clean(1);
+	clean(2);
 	while (ptr != NULL)
 	{
 		if (ptr->slect == 1)
-			ft_sdebug("% ", ptr->file);
+		{
+			ft_putstr(ptr->file);
+			ft_putchar(' ');
+		}
 		ptr = ptr->next;
 	}
 	exit(1);
