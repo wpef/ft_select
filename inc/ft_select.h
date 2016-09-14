@@ -135,6 +135,7 @@ int		sl_termerror(char *id, char *termtype);
 ** SIGNAL
 */
 
+void		sl_signal(void);
 void		signal_handler(int sig);
 void		signal_sigwinch(void);
 int			wait_winsize(t_infos *infos);

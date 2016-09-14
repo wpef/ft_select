@@ -1,12 +1,27 @@
 #include "ft_select.h"
 
+void	sl_signal(void)
+{
+	int	i;
+
+	i = 0;
+	while (i < 32)
+	{
+		signal(i, signal_handler);
+		i++;
+	}
+}
+
 void	signal_handler(int sig)
 {
 	if (sig == SIGWINCH)
-	{
-		ft_putendl("IN");
 		return (signal_sigwinch());
-	}
+	if (sig == SIGINT || sig == SIGQUIT)
+		return (sl_exit(0, &g_infos));
+	if (sig == SIGTSTP)
+		return (sl_suspend());
+	if (sig == SIGCONT)
+		return (sl_cont());
 }
 
 void	signal_sigwinch(void)

@@ -1,4 +1,4 @@
-Quelque soit le moyen par lequel votre programme se termine, la configuration par defaut de votre terminal DOIT être restaurée. Oui, même après avoir reçu un signal (sauf signaux qu’on ne peut pas intercepter, mais ca veut dire que votre programme ne fonctionne pas de toute façon).
+EXIT PROPRE ON SIGNAL
 
 On doit pouvoir interrompre votre programme avec un ctrl+z et le restaurer avec fg sans que cela influe sur son comportement
 

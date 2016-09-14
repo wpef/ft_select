@@ -7,3 +7,8 @@ void	sl_exit(int success, t_infos *infos)
 	tcsetattr(0, TCSADRAIN, &infos->term.origin_termios);
 	exit(success);
 }
+
+void	sl_suspend()
+{
+	
+}
