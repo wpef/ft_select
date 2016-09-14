@@ -42,7 +42,7 @@ int	delete_it(t_infos *infos)
 {
 	infos->old_pos = infos->cr_pos->next;
 	if (infos->nbfiles == 1)
-		exit(0);
+		sl_exit(0, infos);
 	free_node(infos->cr_pos, infos);
 	make_unloop(infos->files);
 	infos->nbfiles--;
@@ -71,7 +71,8 @@ int	slect_return(t_infos *infos)
 		}
 		ptr = ptr->next;
 	}
-	exit(1);
+	sl_exit(1, infos);
+	return (1);
 }
 /*
 ** XX FLECHES :
