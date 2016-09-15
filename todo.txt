@@ -1,7 +1,6 @@
 EXIT PROPRE ON SIGNAL
 
-On doit pouvoir interrompre votre programme avec un ctrl+z et le restaurer avec fg sans que cela influe sur son comportement
-
 Si le programme est lancé avec un environnement vide, vous devez adopter un comportement raisonnable.
- Si les choix sont des fichiers, colorer selon l’extension (un peu comme ls -G sous
+
+Si les choix sont des fichiers, colorer selon l’extension (un peu comme ls -G sous
 OSX).
