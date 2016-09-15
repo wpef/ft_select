@@ -23,6 +23,8 @@ int	init_print(t_infos *infos)
 	if (check_winsize(infos) == 1)
 	{
 		//open_newterm(infos);
+		if (infos->files->loop)
+			make_unloop(infos->files);
 		cursor_origin(infos);
 		print_list(infos);
 		cursor_origin(infos);
