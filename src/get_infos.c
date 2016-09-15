@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_infos.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 17:56:40 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 17:57:34 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 int		get_infos(int ac, char **av, t_infos *infos)
@@ -11,9 +23,9 @@ int		get_infos(int ac, char **av, t_infos *infos)
 
 int		get_winsize(t_infos *infos)
 {
-	struct winsize w;
-	int	nb_col;
-	int	nb_row;
+	struct winsize	w;
+	int				nb_col;
+	int				nb_row;
 
 	ioctl(0, TIOCGWINSZ, &w);
 	infos->ws_row = w.ws_row;

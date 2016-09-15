@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   slect.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 18:15:53 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 18:15:55 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 int	get_termdata(t_term *term)
@@ -20,7 +32,7 @@ int	get_termdata(t_term *term)
 }
 
 /*
-** THIS FUNCTION SETS THE TERMINAL TO CANONIQUE MODE WHICH MEANS THE 
+** THIS FUNCTION SETS THE TERMINAL TO CANONIC MODE WHICH MEANS THE
 ** FUCTION READ WILL RETURN EACH CHARACTERS STROKE INDEPENDANTLY
 */
 
@@ -44,7 +56,7 @@ int	init_newterm(t_term *term)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	sl_signal();
 	if (init_newterm(&g_infos.term) == -1)
@@ -55,29 +67,3 @@ int main(int ac, char **av)
 	tcsetattr(0, TCSADRAIN, &g_infos.term.origin_termios);
 	return (1);
 }
-
-//	t_files *ptr;
-//	ptr = infos.files;
-//	printf("WINDOW is %d ROWS && %d COL\n", infos.ws_row, infos.ws_col);
-//	printf("%d ROWS && %d COL of %d char width\n", infos.nb_row, infos.nb_col, infos.width);
-//	while (ptr != NULL)
-//	{
-//		printf("%s :: row %d col %d\n", ptr->file, ptr->y_pos, ptr->x_pos);
-//		ptr = ptr->next;
-//	}
-
-
-/*debug
-	t_files *ptr;
-	t_files *last;
-	ptr = infos.files;
-	last = infos.files;
-	while (last->next)
-		last = last->next;
-	while (ptr)
-	{
-		printf("%s::\tsi %d == %d-1 && %d > %d\n", ptr->file, ptr->col, infos.nb_col, ptr->y_pos, last->y_pos);
-		ptr = ptr->next;
-	}
-	
-END OF*/

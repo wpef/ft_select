@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   commands.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 17:54:14 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 17:54:21 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 int	read_commands(t_infos *infos)
 {
 	char *buf;
 
-	buf = ft_strnew(3); 
+	buf = ft_strnew(3);
 	if (infos->files == NULL)
 		return (-1);
 	while (read(0, buf, 3) > 0)
@@ -22,9 +34,8 @@ int	read_commands(t_infos *infos)
 			return (delete_it(infos));
 		else if (buf[0] == 10)
 			return (slect_return(infos));
-		ft_bzero(buf, 3); 
-	}	
-	//return (run_select(term, infos));
+		ft_bzero(buf, 3);
+	}
 	return (1);
 }
 
@@ -32,7 +43,7 @@ int	select_it(t_infos *infos)
 {
 	if (infos->cr_pos->slect == 0)
 		infos->cr_pos->slect = 1;
-	else 
+	else
 		infos->cr_pos->slect = 0;
 	curs_down(infos);
 	return (1);
@@ -53,7 +64,7 @@ int	delete_it(t_infos *infos)
 int	slect_return(t_infos *infos)
 {
 	t_files	*ptr;
-	int first;
+	int		first;
 
 	first = 0;
 	ptr = infos->files;
@@ -66,7 +77,7 @@ int	slect_return(t_infos *infos)
 		{
 			if (first > 0)
 				ft_putchar(' ');
-			first ++;
+			first++;
 			ft_putstr(ptr->file);
 		}
 		ptr = ptr->next;
@@ -74,30 +85,3 @@ int	slect_return(t_infos *infos)
 	sl_exit(1, infos);
 	return (1);
 }
-/*
-** XX FLECHES :
-** XX up	: 27/91/65
-** XX down	: 27/91/66
-** XX right: 27/91/67
-** XX left	: 27/91/68
-**
-** SPC	: 32/91/67 //FAUX
-** DEL1	: 127/91/68 //FAUX
-** DEL2	: 126/91/51 //FAUX
-** RETN	: 10/91/68 //FAUX
-** XX ESC : 27/0/0 XX
-*/
-
-
-/*
-DEBUG POUR AFFICHER LES TOUCHES 
-
-		int i = 0;
-		while (buf[i])
-		{
-			printf("buf[%d] == %d\n", i, buf[i]);
-			i++;
-		}
-		i = 0;
-		ft_putendl("");
-*/

@@ -1,19 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cursor_motion.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 18:01:28 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 18:01:31 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
-
-int	cursor_origin(t_infos *infos)
-{
-	char *res;
-
-	if (infos == NULL)
-		return (-1);
-	res = tgetstr("cm", NULL);
-	if (tputs(tgoto(res, 0, 0), 1, putchar_std) == ERR)
-		return (-1);
-	infos->cr_pos = infos->files;
-	infos->cr_col = 0;
-	infos->cr_row = 0;
-	return (1);
-}
 
 int	cursor_commands(char c, t_infos *infos)
 {
@@ -26,13 +23,13 @@ int	cursor_commands(char c, t_infos *infos)
 	if (c == 68)
 		return (curs_left(infos));
 	else
-		return(sl_error("cursor", infos));
+		return (sl_error("cursor", infos));
 }
 
 int	curs_down(t_infos *infos)
 {
 	t_files	*file;
-	
+
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
 	infos->cr_pos = file->next;
@@ -44,7 +41,7 @@ int	curs_down(t_infos *infos)
 int	curs_up(t_infos *infos)
 {
 	t_files	*file;
-	
+
 	file = infos->cr_pos;
 	print_file(file, NULL, infos);
 	infos->cr_pos = file->prev;
@@ -56,7 +53,7 @@ int	curs_up(t_infos *infos)
 int	curs_right(t_infos *infos)
 {
 	t_files	*file;
-	int i;
+	int		i;
 
 	i = 1;
 	file = infos->cr_pos;
@@ -80,7 +77,7 @@ int	curs_right(t_infos *infos)
 int	curs_left(t_infos *infos)
 {
 	t_files	*file;
-	int no_next;
+	int		no_next;
 
 	file = infos->cr_pos;
 	no_next = has_no_next(file, "le", infos);
@@ -96,17 +93,4 @@ int	curs_left(t_infos *infos)
 	infos->cr_pos = file;
 	print_file(file, "ul", infos);
 	return (1);
-}
-
-int	curs_to(t_files *dest, t_infos *infos)
-{
-	t_files	*old;
-
-	old = infos->cr_pos;
-	if (old == NULL || dest == NULL || infos == NULL)
-		return (-1);
-	print_file(old, NULL, infos);
-	print_file(dest, "ul", infos);
-	infos->cr_pos = dest;
-	return(1);
 }

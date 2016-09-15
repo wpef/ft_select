@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_files.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 18:02:19 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 18:03:11 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
-int		get_files(int ac, char **av, t_infos *infos)
+int			get_files(int ac, char **av, t_infos *infos)
 {
 	infos->nbfiles = ac - 1;
 	if ((infos->files = make_filelist(av)) != NULL)
@@ -45,7 +57,7 @@ t_files		*init_list(char *av)
 
 	if (av == NULL)
 		return (NULL);
-	filelist = malloc(sizeof(t_files)); //leaks ici apparemment
+	filelist = malloc(sizeof(t_files));
 	filelist->prev = NULL;
 	filelist->file = av;
 	filelist->len = ft_strlen(av);
@@ -55,7 +67,7 @@ t_files		*init_list(char *av)
 	return (filelist);
 }
 
-int		get_filepos(t_infos *infos)
+int			get_filepos(t_infos *infos)
 {
 	t_files *ptr;
 	int		col;

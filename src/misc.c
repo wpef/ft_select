@@ -1,47 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   misc.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 18:05:17 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 18:31:43 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
-int	has_no_next(t_files *ptr, char *pos, t_infos *infos)
-{
-	if (ft_strcmp("ri", pos) == 0)
-	{
-		if ((ptr->col == (infos->nb_col - 1)) && (ptr->y_pos > infos->files->prev->y_pos))
-			return (1);
-		if (ptr->x_pos + ptr->len >= infos->ws_col - infos->width)
-			return (2);
-	}
-	else if (ft_strcmp("do", pos) == 0)
-	{
-		if (ptr->y_pos == infos->nb_row)
-			return (1);
-		else if (ft_strcmp(ptr->file, infos->files->file) == 0)
-			return (1);
-	}
-	else if (ft_strcmp("le", pos) == 0)
-	{
-		if (ptr->x_pos == 0)
-		{
-			if (ptr->y_pos > infos->files->prev->y_pos)
-				return (2);
-			return (1);
-		}
-	}
-	else if (ft_strcmp("up", pos) == 0)
-	{
-		if (ptr->y_pos == 0)
-			return (1);
-	}
-	return (0);
-}
-
 /*
-** NOTE FOR FREE NODE
+** !!!! TO BE USED AFTER LOOP
 ** **************************
-** !!!!! TO BE USED AFTER LOOP !!!!!!
-** **************************
-** file must be a pointer to 
+** file must be a pointer to
 ** a node of infos->files
 ** **************************
 */
+
 int	free_node(t_files *file, t_infos *infos)
 {
 	t_files	*ptr;
@@ -49,7 +27,8 @@ int	free_node(t_files *file, t_infos *infos)
 	ptr = infos->files;
 	while (file->x_pos != ptr->x_pos || file->y_pos != ptr->y_pos)
 		ptr = ptr->next;
-	if (infos->files->x_pos == file->x_pos && infos->files->y_pos == ptr->y_pos)
+	if (infos->files->x_pos == file->x_pos
+			&& infos->files->y_pos == ptr->y_pos)
 		infos->files = infos->files->next;
 	ptr->next->prev = ptr->prev;
 	ptr->prev->next = ptr->next;
@@ -60,19 +39,20 @@ int	free_node(t_files *file, t_infos *infos)
 int	make_unloop(t_files *list)
 {
 	t_files	*ptr;
+
 	ptr = list;
 	if (list == NULL)
 		return (-1);
-	ptr = ptr->prev; 
+	ptr = ptr->prev;
 	ptr->next = NULL;
 	list->loop = 0;
 	return (1);
 }
 
-int		make_loop(t_files *list)
+int	make_loop(t_files *list)
 {
-	t_files *start;
-	t_files *end;
+	t_files	*start;
+	t_files	*end;
 
 	start = list;
 	end = list;
@@ -84,10 +64,10 @@ int		make_loop(t_files *list)
 	return (1);
 }
 
-int		get_maxlen(t_infos *infos)
+int	get_maxlen(t_infos *infos)
 {
 	t_files	*ptr;
-	int	maxlen;
+	int		maxlen;
 
 	maxlen = 0;
 	ptr = infos->files;

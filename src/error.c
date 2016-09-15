@@ -1,6 +1,16 @@
-#include "ft_select.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 17:55:06 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 17:55:09 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//RESET TERM BEFOR EXTI
+#include "ft_select.h"
 
 int	sl_error(char *id, t_infos *infos)
 {
@@ -30,7 +40,7 @@ int	sl_termerror(char *id, char *termtype)
 		ft_sdebug("\tTerminal type % is not define.", termtype);
 	else if (ERROR("info"))
 		ft_putendl("\tTerm info not reached");
-	else	
+	else
 		ft_sdebug("UNEXEPCTED ERROR :\tft_select\n\t%", id);
 	return (-1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 17:56:16 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 17:56:17 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 void	sl_exit(int success, t_infos *infos)
@@ -8,7 +20,7 @@ void	sl_exit(int success, t_infos *infos)
 	exit(success);
 }
 
-void	sl_suspend()
+void	sl_suspend(void)
 {
 	char	c[2];
 
@@ -19,7 +31,7 @@ void	sl_suspend()
 	clean(1);
 }
 
-void		sl_cont()
+void	sl_cont(void)
 {
 	clean(1);
 	sl_signal();

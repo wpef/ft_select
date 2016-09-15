@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/15 18:04:47 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/09/15 18:19:31 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
-int run_select(t_infos *infos)
+int	run_select(t_infos *infos)
 {
 	if (init_print(infos) == -1)
 		return (-1);
@@ -22,7 +34,6 @@ int	init_print(t_infos *infos)
 	clean(2);
 	if (check_winsize(infos) == 1)
 	{
-		//open_newterm(infos);
 		if (infos->files->loop)
 			make_unloop(infos->files);
 		cursor_origin(infos);
@@ -34,15 +45,6 @@ int	init_print(t_infos *infos)
 		return (1);
 	}
 	return (sl_error("winsize", infos));
-}
-
-int	clean(int fd)
-{
-	char *str;
-
-	str = tgetstr("cl", NULL);
-	tputs(str, 0, (fd == 1 ? putchar_std : putchar_fd));
-	return (1);
 }
 
 int	print_list(t_infos *infos)
