@@ -145,4 +145,6 @@ int			wait_winsize(t_infos *infos);
 */
 
 void		sl_exit(int success, t_infos *infos);
+void		sl_suspend(void);
+void		sl_cont(void);
 #endif

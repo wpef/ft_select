@@ -15,7 +15,9 @@ int run_select(t_infos *infos)
 int	init_print(t_infos *infos)
 {
 	if (infos->files == NULL)
+	{
 		return (-1);
+	}
 	clean(1);
 	clean(2);
 	if (check_winsize(infos) == 1)

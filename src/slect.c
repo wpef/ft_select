@@ -46,7 +46,7 @@ int	init_newterm(t_term *term)
 
 int main(int ac, char **av)
 {
-	sl_signal(SIGWINCH, signal_handler);
+	sl_signal();
 	if (init_newterm(&g_infos.term) == -1)
 		return (-1);
 	if (get_infos(ac, av, &g_infos) == -1)
