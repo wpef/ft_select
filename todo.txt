@@ -1,6 +1,0 @@
-EXIT PROPRE ON SIGNAL
-
-Si le programme est lancé avec un environnement vide, vous devez adopter un comportement raisonnable.
-
-Si les choix sont des fichiers, colorer selon l’extension (un peu comme ls -G sous
-OSX).
