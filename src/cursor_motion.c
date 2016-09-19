@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 18:01:28 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 18:01:31 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/19 15:51:24 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	cursor_commands(char c, t_infos *infos)
 		return (curs_right(infos));
 	if (c == 68)
 		return (curs_left(infos));
-	else
-		return (sl_error("cursor", infos));
+	return (-1);
 }
 
 int	curs_down(t_infos *infos)

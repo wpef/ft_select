@@ -6,7 +6,7 @@
 #    By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/19 13:46:47 by fde-monc          #+#    #+#              #
-#    Updated: 2016/09/19 13:53:29 by fde-monc         ###   ########.fr        #
+#    Updated: 2016/09/19 15:44:33 by fde-monc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-CURS = -lcurses
+CURS = -ltermcap
 
 PATH_SRC = src/
 
