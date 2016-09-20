@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 18:02:19 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 18:03:11 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/20 15:12:29 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,31 @@ t_files		*make_filelist(char **av)
 		ptr2->len = ft_strlen(av[i]);
 		ptr2->slect = 0;
 		ptr2->next = NULL;
+		ptr2->type = get_ftype(av[i]);
 		ptr->next = ptr2;
 		ptr = ptr->next;
 		ptr2 = ptr2->next;
 		i++;
 	}
 	return (filelist);
+}
+
+int		get_ftype(char *file)
+{
+	struct stat	*buf;
+	int			ftype;
+
+	ftype = 0;
+	buf = malloc(sizeof(struct stat));
+	if (lstat(file, buf) != -1)
+	{
+		if (S_ISDIR(buf->st_mode))
+			ftype = 1;
+		else if (S_ISLNK(buf->st_mode))
+			ftype = 2;
+	}
+	free(buf);
+	return (ftype);
 }
 
 t_files		*init_list(char *av)
@@ -61,6 +80,7 @@ t_files		*init_list(char *av)
 	filelist->prev = NULL;
 	filelist->file = av;
 	filelist->len = ft_strlen(av);
+	filelist->type = get_ftype(av);
 	filelist->slect = 0;
 	filelist->next = NULL;
 	filelist->loop = 0;

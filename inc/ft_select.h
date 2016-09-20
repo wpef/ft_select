@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 17:51:52 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 18:29:34 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/20 15:07:15 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <term.h>
 # include <termcap.h>
 # include <termios.h>
+# include <sys/stat.h>
 # define ERROR(ID) (ft_strcmp(ID, id) == 0 ? 1 : 0)
 
 typedef struct termios	t_termios;
@@ -39,6 +40,7 @@ typedef struct		s_files
 	int				y_pos;
 	int				col;
 	struct s_files	*next;
+	int				type;
 	int				loop;
 }					t_files;
 
@@ -88,6 +90,7 @@ t_files				*init_list(char *av);
 int					get_maxlen(t_infos *infos);
 int					get_filepos(t_infos *infos);
 int					make_loop(t_files *file);
+int					get_ftype(char *file);
 
 /*
 ** RUNNING
@@ -131,6 +134,7 @@ int					curs_to(t_files *dest, t_infos *infos);
 int					print_file(t_files *ptr, char *opt, t_infos *infos);
 int					print_ulfile(t_files *ptr);
 int					print_file_at(t_files *ptr);
+int					print_stdfile(t_files *ptr);
 
 /*
 ** MISC

@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 18:01:38 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 18:16:07 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/20 15:14:37 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	print_file(t_files *ptr, char *opt, t_infos *infos)
 	if (opt && ft_strcmp(opt, "ul") == 0)
 		print_ulfile(ptr);
 	else
-		ft_putstr_fd(ptr->file, 2);
+		print_stdfile(ptr);
 	if (ptr->slect == 1)
 		tputs(tgetstr("me", NULL), 1, putchar_std);
 	tputs(tgoto(tgetstr("cm", NULL), ptr->x_pos, ptr->y_pos), 1, putchar_std);
@@ -48,9 +48,25 @@ int	print_ulfile(t_files *ptr)
 {
 	if (tputs(tgetstr("us", NULL), 1, putchar_std) == ERR)
 		return (-1);
+	if (ptr->type == 1)
+		ft_putstr_fd("\x1B[31m", 2);
+	else if (ptr->type == 2)
+		ft_putstr_fd("\x1B[33m", 2);
 	ft_putstr_fd(ptr->file, 2);
+	ft_putstr_fd("\x1B[0m", 2);
 	if (tputs(tgetstr("ue", NULL), 1, putchar_std) == ERR)
 		return (-1);
+	return (1);
+}
+
+int	print_stdfile(t_files *ptr)
+{
+	if (ptr->type == 1)
+		ft_putstr_fd("\x1B[31m", 2);
+	else if (ptr->type == 2)
+		ft_putstr_fd("\x1B[33m", 2);
+	ft_putstr_fd(ptr->file, 2);
+	ft_putstr_fd("\x1B[0m", 2);
 	return (1);
 }
 
