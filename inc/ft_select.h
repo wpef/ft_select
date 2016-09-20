@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 17:51:52 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/20 15:07:15 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/20 16:24:43 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,18 @@ int					putchar_fd(int c);
 */
 
 int					read_commands(t_infos *infos);
-int					select_it(t_infos *infos);
 int					sl_error(char *id, t_infos *infos);
-int					delete_it(t_infos *infos);
 int					slect_return(t_infos *infos);
+
+/*
+** PAD CONTROL
+*/
+
+int					select_it(t_infos *infos);
+int					delete_it(t_infos *infos);
+int					select_all(t_infos *infos);
+int					deselect_all(t_infos *infos);
+int					inv_select(t_infos *infos);
 
 /*
 ** MOTION

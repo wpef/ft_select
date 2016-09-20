@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 17:54:14 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 17:54:21 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/09/20 16:24:40 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ int	read_commands(t_infos *infos)
 		if (buf[0] == 27 && !buf[1])
 		{
 			clean(1);
-			return (-1);
+			sl_exit(1, infos);
 		}
+		else if (buf[0] == 1 && buf[1] == 0)
+			select_all(infos);
+		else if (buf[0] == 4 && buf[1] == 0)
+			deselect_all(infos);
+		else if (buf[0] == 9 && buf[1] == 0)
+			inv_select(infos);
 		else if (buf[0] == 27 && buf[1] == 91)
 			cursor_commands(buf[2], infos);
 		else if (buf[0] == 32 && buf[1] == 0)
@@ -37,28 +43,6 @@ int	read_commands(t_infos *infos)
 		ft_bzero(buf, 3);
 	}
 	return (1);
-}
-
-int	select_it(t_infos *infos)
-{
-	if (infos->cr_pos->slect == 0)
-		infos->cr_pos->slect = 1;
-	else
-		infos->cr_pos->slect = 0;
-	curs_down(infos);
-	return (1);
-}
-
-int	delete_it(t_infos *infos)
-{
-	infos->old_pos = infos->cr_pos->next;
-	if (infos->nbfiles == 1)
-		sl_exit(0, infos);
-	free_node(infos->cr_pos, infos);
-	make_unloop(infos->files);
-	infos->nbfiles--;
-	get_filepos(infos);
-	return (run_select(infos));
 }
 
 int	slect_return(t_infos *infos)

@@ -6,7 +6,7 @@
 #    By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/19 13:46:47 by fde-monc          #+#    #+#              #
-#    Updated: 2016/09/19 15:44:33 by fde-monc         ###   ########.fr        #
+#    Updated: 2016/09/20 16:02:15 by fde-monc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC =	commands.c \
 		prints.c \
 		run.c \
 		signal.c \
+		padcontrol.c \
 		slect.c
 
 SRC_FILE = $(addprefix $(PATH_SRC), $(SRC));
