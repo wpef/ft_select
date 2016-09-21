@@ -37,7 +37,7 @@ int	read_commands(t_infos *infos)
 		else if (buf[0] == 32 && buf[1] == 0)
 			select_it(infos);
 		else if ((buf[0] == 127 || buf[0] == 126) && buf[1] == 0)
-			return (delete_it(infos));
+			delete_it(infos);
 		else if (buf[0] == 10)
 			return (slect_return(infos));
 		ft_bzero(buf, 3);
