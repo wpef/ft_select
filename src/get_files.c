@@ -65,6 +65,8 @@ int		get_ftype(char *file)
 			ftype = 1;
 		else if (S_ISLNK(buf->st_mode))
 			ftype = 2;
+		else if (S_IEXEC & buf->st_mode)
+			ftype = 3;
 	}
 	free(buf);
 	return (ftype);

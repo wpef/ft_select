@@ -49,9 +49,11 @@ int	print_ulfile(t_files *ptr)
 	if (tputs(tgetstr("us", NULL), 1, putchar_std) == ERR)
 		return (-1);
 	if (ptr->type == 1)
-		ft_putstr_fd("\x1B[31m", 2);
+		ft_putstr_fd("\x1B[36m", 2);
 	else if (ptr->type == 2)
 		ft_putstr_fd("\x1B[33m", 2);
+	else if (ptr->type == 3)
+		ft_putstr_fd("\x1B[31m", 2);
 	ft_putstr_fd(ptr->file, 2);
 	ft_putstr_fd("\x1B[0m", 2);
 	if (tputs(tgetstr("ue", NULL), 1, putchar_std) == ERR)
@@ -62,9 +64,11 @@ int	print_ulfile(t_files *ptr)
 int	print_stdfile(t_files *ptr)
 {
 	if (ptr->type == 1)
-		ft_putstr_fd("\x1B[31m", 2);
+		ft_putstr_fd("\x1B[36m", 2);
 	else if (ptr->type == 2)
 		ft_putstr_fd("\x1B[33m", 2);
+	else if (ptr->type == 3)
+		ft_putstr_fd("\x1B[31m", 2);
 	ft_putstr_fd(ptr->file, 2);
 	ft_putstr_fd("\x1B[0m", 2);
 	return (1);
