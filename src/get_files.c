@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 18:02:19 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/20 15:12:29 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/04 12:42:43 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_files		*make_filelist(char **av)
 	return (filelist);
 }
 
-int		get_ftype(char *file)
+int			get_ftype(char *file)
 {
 	struct stat	*buf;
 	int			ftype;

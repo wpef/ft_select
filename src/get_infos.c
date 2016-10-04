@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 17:56:40 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/15 17:57:34 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/04 12:45:04 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,23 @@ int		get_winsize(t_infos *infos)
 int		check_winsize(t_infos *infos)
 {
 	if (infos->nb_row <= infos->ws_row &&
-		((infos->nb_col * infos->width) <= infos->ws_col))
+			((infos->nb_col * infos->width) <= infos->ws_col))
 		return (1);
 	else
 		return (-1);
 }
 
-int	cursor_origin(t_infos *infos)
+int		cursor_origin(t_infos *infos)
 {
-    char *res;
-    
-    if (infos == NULL)
-        return (-1);
-    res = tgetstr("cm", NULL);
-    if (tputs(tgoto(res, 0, 0), 1, putchar_std) == ERR)
-        return (-1);
-    infos->cr_pos = infos->files;
-    infos->cr_col = 0;
-    infos->cr_row = 0;
-    return (1);
+	char *res;
+
+	if (infos == NULL)
+		return (-1);
+	res = tgetstr("cm", NULL);
+	if (tputs(tgoto(res, 0, 0), 1, putchar_std) == ERR)
+		return (-1);
+	infos->cr_pos = infos->files;
+	infos->cr_col = 0;
+	infos->cr_row = 0;
+	return (1);
 }

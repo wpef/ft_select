@@ -1,8 +1,0 @@
-Norme: ./src/commands.c
-Error (line 15): function read_commands has 29 lines
---
-Norme: ./src/get_files.c
-Error: global scope bad aligned
---
-Norme: ./src/prints.c
-Error: 6 functions in the file

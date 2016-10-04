@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 17:51:52 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/09/20 16:24:43 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/04 12:40:10 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int					delete_it(t_infos *infos);
 int					select_all(t_infos *infos);
 int					deselect_all(t_infos *infos);
 int					inv_select(t_infos *infos);
-void                sl_hook(char *buf, t_infos *infos);
+void				sl_hook(char *buf, t_infos *infos);
 
 /*
 ** MOTION
