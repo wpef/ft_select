@@ -121,6 +121,7 @@ int					delete_it(t_infos *infos);
 int					select_all(t_infos *infos);
 int					deselect_all(t_infos *infos);
 int					inv_select(t_infos *infos);
+void                sl_hook(char *buf, t_infos *infos);
 
 /*
 ** MOTION
